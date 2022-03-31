@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test006.html</title>
+<style type="text/css">
+	*
+	{
+		font-size: 20pt;
+		font-weight: bold;
+		font-family: 맑은 고딕;
+		color: #334433;
+	}
+</style>
+
+<script type="text/javascript">
+	function actionPerformed()
+	{
+		//자바스크립트 구역이라 
+		//html주석과는 달라요..
+		//alert("함수 호출 확인~!!!!");
+		
+		
+		
+		/* document : 브라우저에게 빌려온 문서 객체 */
+		// getElementById : 문서(Test006.html)에서 
+		// 요소를 얻어낼 것이다. id로 ~!! 
+		
+		
+		//document.getElementById("kor") : 화면에서 입력하는 칸
+		//.value : 입력된 100점.
+		// 텍스트박스에 입력하는거 기본적으로 문자열~!!!
+		var vKor = document.getElementById("kor").value;
+		var vEng = document.getElementById("eng").value;
+		var vMat = document.getElementById("mat").value;
+		// 얘네는 입력xx 정수들 더한 값들이 얘네 들어가서 정수타입!
+		var vTot = 0;
+		var vAvg = 0;
+		
+		
+		//그래서 parseInt함!!(js 내장함수)
+		//변환안하면 문자열결합으로 됨!
+		vTot = parseInt(vKor) + parseInt(vEng) + parseInt(vMat);
+		vAvg = Math.round(vTot/3);
+		
+		document.getElementById("tot").value = vTot;
+		document.getElementById("avg").value = vAvg;
+	}
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>데이터 입력 관련 태그</h1>
+	<hr>
+</div>
+
+
+<div>
+	<!-- check~!! -->
+	<form>
+		<!-- input에는 value가 화면에서 입력되는 형태 -->
+		이름 <input type = "text" id = "name"><br>
+		국어 <input type = "text" id = "kor"><br>
+		영어 <input type = "text" id = "eng"><br>
+		수학 <input type = "text" id = "mat"><br>
+		<br>
+		
+		<!-- 결과 버튼에 클릭 이벤트가 발생했을 때 『actionPerformd()』
+		     자바스크립트 함수 호출 -->
+		<!-- onclick : 『click』이벤트에 『on』이 붙은 것!! -->
+		<input type="button" value = "결과" onclick="actionPerformed()">
+		<input type="reset" value = "취소">
+		<br>
+		
+		총점 <input type="text" id = "tot"> 평균 <input type="text" id = "avg"><br>
+	</form>
+</div>
+
+</body>
+</html>

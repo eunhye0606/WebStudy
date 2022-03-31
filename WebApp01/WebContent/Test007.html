@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test007.html</title>
+</head>
+<body>
+
+
+<div>
+	<h1>수평선 넣기 / 공백 넣기</h1>
+	<hr>
+</div>
+
+<!-- 여기 개행 없는데 자동 공백 됨 == 블록단위 태그 -->
+<div>
+	수평선을 사용해보자
+	<hr size = "26" color = "red">
+	<!-- 여기 개행 없는데 자동 공백 됨 == 블록단위 태그 -->
+	<br><br>
+	
+	음영선이 없는 수평선
+	<hr size = "2" noshade = "noshade">
+	<br><br>
+	
+	수평선의 수평 길이 설정
+	<!-- 수평선의 size 속성 : 두께
+	         width속성 : 길이 -->
+	<hr size = "5" width = "400" align = "right">
+	<hr size = "5" width = "200" align = "right">
+	<br><br>
+	
+	수평선의 정렬
+	<hr size = "5" width = "50%" align = "left">
+	<hr size = "7" width = "50%" align = "right">
+	<hr size = "9" width = "50%" align = "center">
+	<hr size = "5" width = "50%">
+	<!-- align 속성없으면 기본적으로 center 정렬 -->
+</div>
+
+<div>
+	공백 발생<br>
+	공백               공백<br>
+	공백 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 공백<br>
+</div>
+
+
+<!-- check~!!!! -->
+<!-- 대표적인 쓰지말아라 태그!! -->
+<div>
+	<font size = "1">F강의장 식구들 화이팅</font><br>
+	<font size = "2">F강의장 식구들 화이팅</font><br>
+	<font size = "3">F강의장 식구들 화이팅</font><br>
+	<font size = "5">F강의장 식구들 화이팅</font><br>
+	<font size = "6">F강의장 식구들 화이팅</font><br>
+	<font size = "7">F강의장 식구들 화이팅</font><br>
+	<!-- check!!! -->
+	<!-- 없음에도 불구하고 html은 에러발생 xx -->
+	<font size = "8">F강의장 식구들 화이팅</font><br>
+	<font size = "9">F강의장 식구들 화이팅</font><br>
+	<font size = "10">F강의장 식구들 화이팅</font><br>
+	
+	
+	<font size = "4" color ="green">F강의장 식구들 화이팅</font><br>
+	<font size = "4" color ="#00ff00">F강의장 식구들 화이팅</font><br>
+	<font size = "4" color ="red" face = "궁서체">F강의장 식구들 화이팅</font><br>
+</div>
+</body>
+</html>
