@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test023.html</title>
+</head>
+<body>
+
+<div>
+	<h1>드롭다운메뉴(selectbox) 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<!-- <!-- input 엘리먼트의 type 컨트롤 XX
+		select 엘리먼트!
+		<p>당신이 가장 좋아하는 운동은</p>
+		『name 속성』 : 서버와 수신하기 위한 속성 !!
+		서버 쪽에서 name 열어서 뭐가 들어있는지 확인.
+		즉, 서버에서 selectSport 까면 val3나옴.
+		<select name = "selectSport">
+			<option>------- 선택하세요 -------</option>
+			<option value = "val1">야구</option>
+			<option value = "val2">축구</option>
+			<option value = "val3">배구</option>
+			<option value = "val4">농구</option>
+		</select> -->
+		
+		
+		
+		
+		
+		
+		
+		<!-- ※ 
+		1. 별도로 이 옵션에 추가 속성을 설정하지 않으면,
+		   첫번째 옵션이 보인다.(사원직책이 사람이 가장 많다.)
+		   but, 사원을 위로 올리면 회장,사장이 기부니가 안좋쥬?
+		→ 해결법 : 『selected』 회장,사장 머리를 누르진 않음!
+		
+		2. reset은 초기값으로 돌리는 것! -->		   
+		<p>당신의 직책은?</p>
+		<select name = "selectJikwi">
+			<option value="1">회장</option>
+			<option value="2">사장</option>
+			<option value="3">이사</option>
+			<option value="4">부장</option>
+			<option value="5">과장</option>
+			<option value="6">대리</option>
+			<option value="7" selected = "selected">사원</option>
+			<option value="8">인턴</option>
+		</select>
+		<br><br>
+		
+		<button type = "button">확인</button>
+		<button type="reset">취소</button>
+		
+		
+		<!-- 다중선택 : multiple 속성
+		multiple 속성을 컨트롤 하기 위해서는 size가 있어야함. -->
+		<p> 가고싶은 여행지는? (다중 선택 가능)</p>
+		<select name = "trav" multiple = "multiple" size = "6">
+			<option value = "val1">백두산</option>
+			<option value = "val2">한라산</option>
+			<option value = "val3">지리산</option>
+			<option value = "val4">설악산</option>
+			<option value = "val5">속리산</option>
+			<option value = "val6">북한산</option>
+		</select>
+		
+		
+		
+		
+		
+		
+		
+	</form>
+</div>
+
+</body>
+</html>

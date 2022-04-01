@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test009.html</title>
+
+<!-- 외부 방식 2개 내부 방식 2개 -->
+
+<link rel = "stylesheet" type = "text/css" href = "CSS/externalStyle.css">
+
+<style type = "text/css">
+	@import url("CSS/importStyle.css");
+	p {font-size: 100px; color: red;}
+</style>
+
+
+</head>
+<body>
+
+<div>
+	<h1>스타일 적용의 우선순위 규칙</h1>
+	<hr>
+</div>
+
+<!-- 스타일 적용 대상에게 『물리적』가까운 스타일이 순서대로 적용된다. -->
+<p style = "color: orange; font-size: 20pt;">이와 같은 상황이라면...나는 어떻게 표현되어야 할까...</p>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test020.html</title>
+</head>
+<body>
+
+<div>
+	<h1>라디오 버튼 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<!-- 같은 name 속성을 가지는 애들은 그 중 한개만 선택 가능.
+		name 속성없으면 다중선택이 가능하지만
+		체크박스처럼 체크를 해제할 수 있는 것은 아니다. -->
+		<p>1. 당신의 성별은?</p>
+		
+		<!-- checked 속성 : 기본값으로 체크된 항목. -->
+		<label>
+			<input type = "radio" name = "gender"value = "female" checked = "checked">여자
+		</label>
+		<input type = "radio" name = "gender"value = "male" id = "m">
+		<label for = "m">남자</label>
+		
+		<br><br><br>
+		<p>2. 당신이 가장 좋아하는 피자는?</p>                                                           
+		<label><input type = "radio" name = "pizza"value = "pineapple">파인애플 피자</label>
+		<label><input type = "radio" name = "pizza"value = "pepperoni" checked = "checked">페페로니 피자</label>
+		<label><input type = "radio" name = "pizza"value = "combination">콤비네이션 피자</label>
+	</form>                                                                                                 
+</div>
+
+</body>
+</html>

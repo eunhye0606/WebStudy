@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+</head>
+<body>
+
+<div>
+	<h1>체크박스 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+	<!-- 	하나의 질문에 대한 체크박스들은 
+	name 속성이 같아야 한다. check~!! -->
+	<!-- 서블릿하면서 왜 그런지 알게될 것이야 -->
+	
+	<!-- 체크박스 컨트롤 특징 : 다중선택가능 -->
+		<p>오늘 점심으로 먹고싶은 메뉴는?</p>
+		
+		<!-- 체크박스가 뭐에 해당하는지는 『value』로 서버에 보낼 수 있다. -->
+		<label>
+			<input type = "checkbox" name = "foodCheck" value = "1">밥
+		</label>
+			<input type = "checkbox" name = "foodCheck" value = "2" id = "label2">
+		<label for = "label2">
+		미역국
+		</label>
+		<label>
+			<input type = "checkbox" name = "foodCheck" value = "3">김치찌개
+		</label>
+			<br><br>
+		<label>
+			<input type = "checkbox" name = "foodCheck" value = "4">계란말이
+		</label>
+		<label>
+			<input type = "checkbox" name = "foodCheck" value = "5">멸치볶음
+		</label>
+		<label>
+			<input type = "checkbox" name = "foodCheck" value = "6">불고기
+		</label>
+		
+		<input type = "checkbox" name = "foodCheck" value = "7" id = "label9">
+		<input type="text">
+		<br><br><br><br><br><br><br><br>
+		<label for = "label8">
+		김치
+		</label>
+		
+		<!-- 한 레이블로 모든 input을 감싸면 계란말이 주변누르면
+		밥 눌림ㅋㅋㅋ -->
+		<!-- </label> -->
+	</form>
+</div>
+
+</body>
+</html>

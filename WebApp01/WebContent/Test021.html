@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+</head>
+<body>
+
+<div>
+	<h1>전송, 취소 버튼 만들기</h1>
+	<hr>
+</div>
+
+<div>
+	<!-- form엘리먼트의 action 속성
+	form에서 작성한 내용을 전송해 줄테니
+	이러한 페이지를 나에게 줘. -->
+	<!-- 데이터 전송 및 페이지 요청. -->
+	<form action = "http://localhost:8090/WebApp01/Test022.html">
+		*이름<input type="text" name = "name" size="15" maxlength="10">
+		<br>
+		*이메일<input type="text" name = "email" size="15" maxlength="20">
+		<br>
+		*하고싶은 말<br>
+		<textarea rows="10" cols="50" name = "field"></textarea>
+		<br><br>
+		
+		<!-- ※ input 엘리먼트의 submit 타입 -->
+		<input type = "submit" value = "전송하기" name ="submitBtn">
+		
+		<!-- 둘이 기능이 같음. 차이점은?
+		input : 단독태그
+		button: 여는태그 / 닫는태그
+		        → 버튼 사이에 또 다른 태그를 넣을 수 있다. -->
+		<input type = "button" value = "전송하기">
+		<button type = "button">전송하기</button>
+		<button type="button">
+		 	<img alt = ""src = "images/btn_03.png">
+		</button>
+		
+		<!-- button 태그에 기본 속성은 submit -->
+		<button>전송하기</button>
+		<button type = "submit">전송하기</button>
+		<br><br>
+		
+		<!-- type= "reset" : 폼 내용 초기화
+		value : 버튼 이름
+		name : 아직 기능 x -->
+		<input type="reset" value = "취소하기" name = "resetBtn">
+		<br><br>
+		
+	</form>
+</div>
+	
+</body>
+</html>

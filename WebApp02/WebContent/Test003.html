@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test003.html</title>
+
+<style type="text/css">
+	/* css의 cascad는 p.type1에서 폰트 크기나 컬러 따로안정해도 p에서
+	상속받는다! */
+	p {color:pink; font-size: 20pt; font-weight: bold;}
+	
+	p.type1 {background-color: black}
+	P.type2 {font-size: 10pt}
+	
+	.type3 {color : yellow; background-color: green}
+</style>
+
+</head>
+<body>
+
+<div>
+	<h1>class 를 선택자로 활용</h1>
+	<hr>
+</div>
+
+<div>
+	<p> 그냥 p 태그만 페이지에 적용할 경우 이렇게 확인된다.</p>
+	<p class = "type1"> 하지만, 클래스를 사용할 경우 이렇게 확인된다.</p>
+	<p class = "type2"> 또한, 다른 클래스를 사용할 경우 이렇게 확인된다.</p>
+	<p class = "type1"> type1 부분입니당.</p>
+	<p class = "type2"> type2 부분입니당당당.</p>
+	<p class = "type1"> type1 부분입니당.</p>
+	<p class = "type3"> type3 부분입니당당당.</p>
+	<span class = "type3">span 태그 영역은 이렇게 입니덩</span>
+</div>
+
+</body>
+</html>
