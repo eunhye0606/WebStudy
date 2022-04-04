@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test013.html</title>
+
+<script type="text/javascript">
+
+	/* 이벤트 등록 방법 ② */
+	//문서가 로드될 때, 함수를 호출하겠다.
+	//① : body 태그가 읽어질 때
+	//② : 문서가 로딩되는 시점.
+	document.onload = windowOnload();
+
+
+	function windowOnload()
+	{
+		alert("경고창 ~ !!!");
+	}
+
+</script>
+
+
+</head>
+
+<!-- 이벤트 등록 방법 ① -->
+<!-- body태그안에 내용을 메모리에 적재할 때,
+     즉, 안에 내용물이 브라우저에 뿌려질 때,
+     스크랩트 함수 호출.                     -->
+<!-- <body onload = "windowOnload()"> -->
+<body>
+
+<h1>이제 이렇게 보내야지</h1>
+<h2>이러면 한번에 많이 말할 수 있음.</h2>
+<h2>애드라 나 심심해 </h2>
+
+
+</body>
+</html>

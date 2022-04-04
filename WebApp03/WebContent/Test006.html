@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test006.html</title>
+
+<script type="text/javascript">
+	
+	
+	// 변수 num1 에 10 대입
+	num1 = 10;					
+	
+	// 문자열 출력
+	document.write("num1= ");
+	// 변수 출력
+	document.write(num1);
+	
+	
+	// 변수 num1에 100 대입
+	num1 = 100;
+	//★ 개행 안됨. check ! 
+	//   html에서 문서안에서 엔터친다해도 개행안됨.
+	/* document.write("\n num1= "); */
+	//그래서 개행하기 위해서는 문자열영역안에 <br>
+	//★ 끝에 세미콜론이 없어도 에러가 나지 않는다.
+	//   js에서 세미콜론은 구분자임! 종결자가 아님!
+	//   그래서 세미콜론 안찍으면 에러는 안나지만
+	//   statement끼리 구분이 안되니까 개행이 안됨!
+	document.write("<br>num1= 짱!")
+	document.write(num1);
+	
+	
+	
+	// 변수 num1 에 문자열 대입
+	num1 = "2022년 4월을 시작하는 어느 날 ...";
+	document.write("<br> num1= ");
+	document.write(num1);
+	
+	
+	
+	// 변수 num2 구성
+	num2 = 200;
+	// 변수 num1 에 변수 num2 담기
+	num1 = num2;
+	document.write("<br> num1= ");
+	document.write(num1);
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

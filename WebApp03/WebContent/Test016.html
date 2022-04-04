@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test016.html</title>
+
+<style type="text/css">
+	* 
+	{
+		color: #223322;
+		font-family: 나눔고딕코딩;
+		font-weight: bold;
+	}
+	input:focus
+	{
+		background-color: #FFD9EC;
+	}
+	
+	input:btn
+	{
+		width : 80px;
+		font-weight: bold;
+		font-family: 맑은 고딕;
+	}
+	input.btn:hover
+	{
+		color: red;
+	}
+	input.btn.ac:active
+	{
+		color: pink;
+	}
+	.txtNum
+	{
+		width:80px;
+	}
+</style>
+
+
+<script type="text/javascript">
+
+	//더하기
+	function fn1()
+	{
+		var x = document.getElementById('num1').value;
+		var y = document.getElementById('num2').value;
+		var result = Number(x) + Number(y);
+		document.getElementById('result').value = result;
+		
+	}
+	//빼기
+	function fn2()
+	{
+		var x = document.getElementById('num1').value;
+		var y = document.getElementById('num2').value;
+		var result = Number(x) - Number(y);
+		document.getElementById('result').value = result;
+		
+	}
+	//곱하기
+	function fn3()
+	{
+		var x = document.getElementById('num1').value;
+		var y = document.getElementById('num2').value;
+		var result = Number(x) * Number(y);
+		document.getElementById('result').value = result;
+		
+	}
+	//나누기
+	function fn4()
+	{
+		var x = document.getElementById('num1').value;
+		var y = document.getElementById('num2').value;
+		var result = Number(x) / Number(y);
+		document.getElementById('result').value = result;
+		
+	}
+</script>
+
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+</div>
+
+<div class = "div1">
+	<p>사용자로부터 두 개의 정수를 입력받고</p>
+	<p>합, 차, 곱, 몫을 연산하여 연산 결과를 페이지에 출력할 수 있도록 한다.</p>
+	<p>HTML, CSS, Javascript 를 활용하여 처리한다.</p>
+</div>
+
+<div>
+	<form>
+		정수1 <input type = "text" id = "num1" class="txtNum">
+		정수2 <input type = "text" id = "num2" class="txtNum">
+		<br><br>
+		
+		<input type = "button" class = "btn" value ="더하기" onclick="fn1()">
+		<input type = "button" class = "btn" value ="빼기" onclick="fn2()">
+		<input type = "button" class = "btn" value ="곱하기" onclick="fn3()">
+		<input type = "button" class = "btn" value ="나누기" onclick="fn4()">
+		<br><br>
+		
+		결과 <input type="text" id = "result" class = "txtNum" disabled="disabled">
+		<input type="reset" class = "btn" value = "취소">
+	</form>
+</div>
+
+
+</body>
+</html>
