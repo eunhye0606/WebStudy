@@ -39,7 +39,46 @@
 
 <script type="text/javascript">
 
-	//더하기
+	//메소드 하나로 구성하기
+	function test(obj)
+	{
+		//alert(obj.value);
+		
+		//공통사항
+		var vNum1 = document.getElementById('num1').value;
+		var vNum2 = document.getElementById('num2').value;
+		var vResult = 0;
+		
+		//조건문
+		if (obj.value =="더하기")
+		{
+			//alert("덧셈 연산 수행");
+			vResult = Number(vNum1) + Number(vNum2);
+		}
+		else if (obj.value =="빼기")
+		{
+			//alert("뺄셈 연산 수행");	
+			vResult = Number(vNum1) - Number(vNum2);
+		}
+		else if (obj.value =="곱하기")
+		{
+			//alert("곱하기 연산 수행")
+			vResult = parseInt(vNum1) * parseInt(vNum2);
+		}
+		else if (obj.value =="나누기")
+		{
+			//alert("나눗셈 연산 수행");
+			vResult = parseInt(vNum1) / parseInt(vNum2);
+		}
+		
+		
+		//값 넣기
+		document.getElementById('result').value = vResult;
+		
+	}
+
+
+	/* //더하기
 	function fn1()
 	{
 		var x = document.getElementById('num1').value;
@@ -74,7 +113,7 @@
 		var result = Number(x) / Number(y);
 		document.getElementById('result').value = result;
 		
-	}
+	} */
 </script>
 
 </head>
@@ -97,10 +136,15 @@
 		정수2 <input type = "text" id = "num2" class="txtNum">
 		<br><br>
 		
-		<input type = "button" class = "btn" value ="더하기" onclick="fn1()">
+		<!-- 메소드 하나로 구성 -->
+		<input type = "button" class = "btn" value ="더하기" onclick="test(this)">
+		<input type = "button" class = "btn" value ="빼기" onclick="test(this)">
+		<input type = "button" class = "btn" value ="곱하기" onclick="test(this)">
+		<input type = "button" class = "btn" value ="나누기" onclick="test(this)">
+		<!-- <input type = "button" class = "btn" value ="더하기" onclick="fn1()">
 		<input type = "button" class = "btn" value ="빼기" onclick="fn2()">
 		<input type = "button" class = "btn" value ="곱하기" onclick="fn3()">
-		<input type = "button" class = "btn" value ="나누기" onclick="fn4()">
+		<input type = "button" class = "btn" value ="나누기" onclick="fn4()"> -->
 		<br><br>
 		
 		결과 <input type="text" id = "result" class = "txtNum" disabled="disabled">

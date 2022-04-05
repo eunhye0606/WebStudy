@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test019.html</title>
+<style type="text/css">
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background: gray;}
+	input.btn {width: 90px; font-weight: bold;}
+	input.btn:hover {color: pink;}
+	
+	
+	/* * {font-family: 궁서체;}
+	div {width: 800pt; height: 200pt;}
+	div.div1 {background-color: pink;}
+	textarea:hover {background-color: orange;}
+	input.btn:hover {background-color: yellow;}
+	input.btn:focus {background-color: black; color: white;}
+	input.textBox:focus {background-color: yellow;} */
+
+</style>
+
+<script type="text/javascript">
+	
+	function myCalculate()
+	{
+		//alert("짜잔");
+		
+		
+		//초기화
+		document.getElementById("result").value = "";
+		
+		
+		var nNum = Number(document.getElementById("num").value);
+		var nSum = 0;
+		
+		if (nNum < 100)
+		{
+			alert("입력값은 100 이상만 가능합니다~!!!");
+			return;
+			//return문을 만나면 뒤를 실행하지않고 끝남.
+		}
+		
+		for (var n = 1; n <= nNum; n++)
+		{
+			nSum += n;
+			
+			if (n % 10 == 0)
+			{
+				document.getElementById("result").value += "1 ~ " + n + " : " + nSum + "\n";
+			}
+		}
+		document.getElementById("result").value += ">>1 ~ " + nNum + " : " + nSum;
+	}
+
+
+	/* var statement = "";
+	function test()
+	{
+		var userStr;
+		var userN;
+		var tot = 0;
+		
+		var result ="";
+		
+		userStr = document.getElementById("userN").value;
+		userN = parseInt(userStr);
+		if (userN <100)
+		{
+			alert("입력값은 100 이상만 가능!")
+		}
+		for (var i = 1; i <= userN; i++)
+		{
+			tot += i;
+			if (i % 10 == 0)
+			{
+				result = "1 ~ " + i + " : " + tot + "\n";
+				statement += result;
+			}
+			else if (i== userN)
+			{
+				result = "1 ~ " + i + " : " + tot + "\n";
+				statement += result;
+			}
+			
+		}
+		//alert(tot);
+		//alert(statement);
+		//return statement;
+		document.getElementById("txtA").value = statement;
+		statement = ""; 
+		
+	}*/
+	
+	
+
+</script>
+</head>
+<body>
+
+
+<div>
+	<form>
+		<div>
+			정수 입력(100 이상)
+			<input type="text" id = "num" class = "txt">
+		</div>
+		<br>
+		
+		<div>
+			<input type="button" value = "결과" class ="btn" style="width: 150pt;" onclick="myCalculate()">
+			<input type="reset" value = "취소" class ="btn" style="width: 150pt;">
+		</div>
+		<br>
+		
+		<div>
+			<textarea rows="10" cols="43" id ="result" readonly="readonly"></textarea>
+		</div>
+	</form>
+</div>
+
+<div>
+	<hr><h1>↓ 내가 한거!</h1><hr>
+</div>
+
+<!-- 
+	사용자롭무터 임의의 정수 n 을 입력받아
+	1 부터 n 까지의 합을 계산하되 n은 100 이상만 허용하고
+	출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.
+	반복문을 활용할 수 있도록 한다.
+	
+	HTML, CSS, Javascript 활용
+	
+	페이지 레이아웃				   (입력값은 100 이상만 가능!)
+	--------------------------------------↑-------------------
+	정수 입력(100이상) [  100   ] → 조건 유효성		userN
+	
+			<결과>		<취소>
+	------------------------------------ → textarea
+	  1 ~ 10 : 55
+	  1 ~ 20 : 210
+	     .
+	     .
+	     .
+	  1 ~ 100 : 5050
+	  1 ~ 101 : 5051
+	------------------------------------
+	----------------------------------------------------------
+	
+ -->
+<div class = "div1">
+	<h3>
+		사용자롭무터 임의의 정수 n 을 입력받아<br>
+		1 부터 n 까지의 합을 계산하되 n은 100 이상만 허용하고<br>
+		출력 시 10의 배수가 될 때 마다 중간 합을 출력할 수 있는 페이지를 구성한다.<br>
+		반복문을 활용할 수 있도록 한다.<br><br>
+	
+		HTML, CSS, Javascript 활용<br>
+	</h3>
+	<hr>
+</div>
+	<form>
+		정수입력(100이상) <input type="text" id="userN" style="width: 80pt" class = "textBox"><br>
+		<input type ="button" class ="btn" value = "결과" id = "result" onclick="test()">
+		<input type ="reset" class ="btn" value = "취소"><br>
+	</form>
+</body>
+<div>
+	<p><textarea rows="10" cols="130" id ="txtA" disabled="disabled"></textarea>
+	
+</div>
+</html>

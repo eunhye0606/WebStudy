@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test021.html</title>
+
+<style type="text/css">
+	* {font-weight: bold;}
+	div.divsuup {background-color: pink;}
+	input.textBox1:focus {background-color: #D4F4FA;}
+	input.textBox {text-align: right;}
+</style>
+
+<script type="text/javascript">
+	function actionPerformed()
+	{
+		var tStr = document.getElementById("txt01").value;
+		
+		
+	}
+	
+	function inputArr()
+	{
+		
+		//초기화
+		/* document.getElementById("userArr").value = "";
+		document.getElementById("totalArr").value = "";
+		document.getElementById("maxN").value = ""; */
+		
+		var tempStr = "";
+		var tempArr = "";
+		document.getElementById("totalArr").value = "";
+		
+		tempStr = document.getElementById("userArr").value;
+		tempArr = tempStr.split(" ");
+		var maxN = 0;
+		//alert(tempArr[0]);
+		for (var i = 0; i < tempArr.length; i++)
+		{
+			/* alert("maxN : " + maxN + " " + i +"번째임");
+			alert("다음 비교 수 : " + tempArr[i]); */
+			document.getElementById("totalArr").value += tempArr[i] + " ";
+			if (maxN < Number(tempArr[i]))
+			{
+				
+				maxN = tempArr[i];
+			}
+		}
+		//alert(maxN);
+		document.getElementById("maxN").value = maxN;
+	}
+</script>
+
+</head>
+<body>
+<div>
+	<h3>
+		사용자로부터 임의의 정수를 임의의 갯수만큼 입력받고,<br>
+		그 내용을 배열을 구성하여<br>
+		구성한 정수들 중 가장 큰 수를 출력해 줄 수 있는 페이지를 구현한다.<br>
+		HTML, CSS, Javascript 활용<br>
+	</h3>
+</div>
+<hr>
+<div class ="divsuup">
+	<form>
+		데이터 입력(공백 구분)
+		<input type="text" id = "txt01" class = "txt"><br><br>
+		
+		<input type="button" id = btn01" class ="btn" style="width: 320pt;" value ="결과"
+		onclick="actionPerformed()"><br><br>
+		
+		- 전체 출력
+		<input type ="text" id = "txt02" class = "txt" readonly="readonly"><br><br>
+		- 가장 큰 수
+		<input type = "text" id = txt03" class ="txt" readonly="readonly"><br><br>
+		</form>
+</div>
+<hr>
+<div>
+	<form>
+		<div class style="width: 400pt">
+			데이터 입력(공백 구분)<br>
+			<input type = "text" class = "textBox1" id = userArr style="width: 100%">
+		</div>
+		<br>
+		<div class style="width: 400pt">
+			<input type= "button" class = "btn" id = resultBtn value = "결과 확인" style="width: 100%" onclick="inputArr()">
+		</div>
+		<br>
+		<!-- - 전체 출력
+		<input type= "text" class ="textBox" id = totalArr disabled="disabled">
+		<br>
+		- 가장 큰 수
+		<input type= "text" class = "textBox" id = maxN disabled="disabled"> -->
+		<div class style="width: 400pt">
+			<table>
+				<tr>
+					<td> - 전체 출력 </td>
+					<td><input type= "text" class ="textBox" id = totalArr disabled="disabled"> </td>
+				</tr>
+				<tr>
+					<td> - 가장 큰 수 </td>
+					<td><input type= "text" class = "textBox" id = maxN disabled="disabled"> </td>
+				</tr>
+			</table>
+		</div>
+		
+	</form>
+</div>
+</body>
+</html>

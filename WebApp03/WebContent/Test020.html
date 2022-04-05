@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test020.html</title>
+<style type="text/css">
+	
+	div.divsuup {background-color: pink;}
+</style>
+
+
+
+<script type="text/javascript">
+	
+	// 자바스크립트 배열 선언 및 초기화
+	var arrTemp = [4, 7, 9, 1, 3, 2, 5, 6, 8];
+	
+	function init()
+	{
+		//alert(arrTemp);
+		document.getElementById("arr11").value = arrTemp; //더미
+	}
+	
+	function actionArray()
+	{
+		//확인
+		//alert("함수 호출 확인");
+		
+		var str = " ";
+		for (var i = 0; i < arrTemp.length; i++)
+		{
+			if (arrTemp[i] % 2 == 0)
+			{
+				str += arrTemp[i] + " ";
+			}
+		}
+		document.getElementById("arr22").value = str;
+	}
+
+	//=======================================
+	function arrPrint()
+	{
+		var arr = [4, 7, 9, 1, 3, 2, 5, 6, 8];
+		var statement = "";
+		//alert(arr);
+		for (var i = 0; i < arr.length; i++)
+		{
+			//alert(arr[i]);
+			if (arr[i] % 2 == 0)
+			{
+				//arr2 += arr[i];
+				//alert("짝수인 값은 ? " +arr[i]);
+				statement += arr[i] + " ";
+			}
+		}
+		document.getElementById("arr2").value = statement;
+	}
+</script>
+</head>
+<!-- 이벤트 헨들러 등록하는 방법 -->
+<body onload="init()">
+<div class ="divsuup">
+	<form>
+		초기 배열 상태
+		<input type ="text" id = "arr11" class = "txt"><br><br>
+		<input type ="button" value = "결과" class ="btn" style="width: 260px;" onclick="actionArray()"><br><br>
+		
+		짝수만 출력
+		<input type="text" id = "arr22" clas= "txt" disabled="disabled">
+	</form>
+</div>
+<div>
+	<h1>여기부터 내가 한거</h1>
+	<h3>
+		지정된 정수가 요소로 구성된 1차원 배열의 숫자 데이터들 중에서<br>
+		짝수만 골라서 출력하는 페이지를 구현한다.<br><br>
+		HTML, CSS, Javascript을 활용한다.
+		또한, 자바스크립트 배열을 활용한다.<br>
+		지정 배열 → 4, 7, 9, 1, 3, 2, 5, 6, 8 <br><br>
+		<hr>
+	</h3>
+</div>
+
+<div>
+	<form>
+		<hr>
+		초기 배열 상태 [4, 7, 9, 1, 3, 2, 5, 6, 8]
+		<!-- <input type = "text" class = "txtBox" id ="arr1"> -->
+		<br>
+		<input type = "button" class ="btn" id = "btn1" value = "결과" onclick="arrPrint()">
+		<br>
+		짝수만 출력 
+		<input type = "text" class ="txtBox" id = "arr2" disabled="disabled">
+		<hr>
+	</form>
+	
+	
+</div>
+
+</body>
+</html>

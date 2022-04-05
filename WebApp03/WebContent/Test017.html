@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test017.html</title>
+
+<style type="text/css">
+		* {color: #223322;}
+		input {font-family: 나눔고딕코딩; font-variant: bold;}
+		input:focus {background-color: #eeeedd;}
+		input.btn {width : 60px; font-weight: bold; font-family: 맑은 고딕;}
+		input.btn:hover {color: orange;}
+		td {text-align: center;}
+		.txt {text-align: right;}
+</style>
+
+<script type="text/javascript">
+	
+	function myCalculate()
+	{
+		var moneyStr = document.getElementById("money").value;
+		var money = parseInt(moneyStr);
+		
+		document.getElementById("totalMoney").value = money;
+		
+		var m500 = parseInt(money/500); 		//var m500 = Math.floor(money/500);
+		
+		money = money%500;						//money %= 500;
+		var m100 = parseInt(money/100);			//var m100 = Math.floor(money/100);
+		money = money%100;  					//money %= 100;
+		var m50 = parseInt(money/50);			//var m100 = Math.floor(money/50);
+		money = money%50;  						//money %= 50;
+		var m10 = parseInt(money/10);			//var m100 = Math.floor(money/10);
+		
+		document.getElementById("m500").value = m500;
+		document.getElementById("m100").value = m100;
+		document.getElementById("m50").value = m50;
+		document.getElementById("m10").value = m10;
+	}
+
+
+</script>
+
+
+</head>
+<body>
+<div>
+	<h1>특정 금액(10원 ~ 990원)을 사용자로부터 입력받아<br>
+		화폐 단위로 구분하여 출력하는 페이지를 구성한다.<br>
+		화폐 단위는 편의상 오백원, 백원, 오십원, 십원으로 구분한다.<br>
+		HTML, CSS, Javascript 를 활용한다.<br>
+	</h1>
+	<br>
+</div>
+
+
+<!--  가급적이면 table 말고 div로 레이아웃 잡기. -->
+<div>
+	<hr>
+		<form>
+			<table style = "width : 200px;">
+				<tr>
+					<td>
+						금액
+					</td>
+					<td>
+						<input type="text" style = "width: 100px;" class ="txt" id = money>
+					</td>
+					<td>
+						원
+					</td>
+				</tr>
+				<tr style = "height: 10px;">
+				</tr>
+				<tr>
+					<td colspan="3">
+						<input type="button" value="결과" class ="btn" onclick="myCalculate()">
+						<input type= "reset" value ="취소" class = "btn">
+					</td>
+				</tr>
+				<tr style="height: 10px;">
+				</tr>
+				<tr>
+					<td> 
+						총 액
+					</td>
+					<td>
+						<input type = "text" style = "width: 100px;" class="txt" id = "totalMoney"disabled="disabled">
+					</td>
+					<td>
+						원
+					</td>
+				</tr>
+				<tr>
+					<td>
+						오백원
+					</td>
+					<td>
+						<input type = "text" style = "width: 100px;" class="txt" id = "m500"disabled="disabled">
+					</td>
+					<td>
+						개
+					</td>
+				</tr>
+				<tr>
+					<td>
+						백원
+					</td>
+					<td>
+						<input type = "text" style = "width: 100px;" class="txt" id = "m100"disabled="disabled">
+					</td>
+					<td>
+						개
+					</td>
+				</tr>
+				<tr>
+					<td>
+						오십원
+					</td>
+					<td>
+						<input type = "text" style = "width: 100px;" class="txt" id = "m50"disabled="disabled">
+					</td>
+					<td>
+						개
+					</td>
+				</tr>
+				<tr>
+					<td>
+						십원
+					</td>
+					<td>
+						<input type = "text" style = "width: 100px;" class="txt" id = "m10"disabled="disabled">
+					</td>
+					<td>
+						개
+					</td>
+				</tr>
+			
+			</table>
+			
+		</form>
+	
+	<hr>
+
+</div>
+
+
+<!-- 
+	특정 금액(10원 ~ 990원)을 사용자로부터 입력받아
+	화폐 단위로 구분하여 출력하는 페이지를 구성한다.
+	화폐 단위는 편의상 오백원, 백원, 오십원, 십원으로 구분한다.
+	HTML, CSS, Javascript 를 활용한다.
+	
+	페이지 기본 레이아웃 구성
+	-----------------------------------------------------------
+	
+	금액 [              ] 원	money
+	
+	<결과> <취소>
+	
+	총액   [           ] 원		totalMoney
+	오백원 [           ] 개		m500
+	백원   [           ] 개		m100
+	오십원 [           ] 개		m50
+	십원   [           ] 개		m10
+	
+	-----------------------------------------------------------
+ -->
+</body>
+</html>
