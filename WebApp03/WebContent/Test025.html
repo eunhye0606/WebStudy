@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+<style type="text/css">
+	th {width: 50px;}
+	td {width: 50px; background-color: pink;}
+	button.btn {background-color: yellow;}
+</style>
+
+<script type="text/javascript">
+
+	function actionCalndar()
+	{
+		//alert("하이~");
+		
+		
+		//년도랑 월 받아오기
+		var year = document.getElementById("txtYear").value;
+		var month = document.getElementById("txtMonth").value;
+		//alert(year + " " + month);
+		
+		
+		
+		//일자가 들어가는 배열
+		//             5월 입력 → 4월까지 더하기. 4월의 인덱스 : 3 즉, n<5-1
+		//             1  2  3    4   5
+		var dayArr = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		//month가 1,3,5,7,8,10,12 → 31
+		//        4,6,9,11		  → 30
+		//        2				  → 윤년이면 29, 평년이면 28
+		
+		//해당 년도가 윤년인지 평년인지
+		//윤년 → 해당 년도가 4의 배수이면서 100의 배수가 아니거나
+		//        400의 배수이다.
+		if ((Number(year) % 4 == 0 && Number(year)%100 != 0) || Number(year)%400 == 0)
+		{
+			//alert("윤년");
+			dayArr[1] = 29;
+		}
+		else
+		{
+			//alert("평년");
+			dayArr[1] = 28;
+		}
+		
+		//달력의 시작날짜 알기
+		//1년 1월 1일은 월요일 
+		//월 화 수 목 금 토 일
+		// 1  2  3  4  5  6  7
+		//총 일수 % 7 == → 요일.
+		//총 일수 구하기
+		//var nalsu = (Number(year) - 1) * 365 + Math.floor((Number(year) - 1) / 4) - Math.floor((Number(year) - 1) / 100) + Math.floor((Number(year) - 1) / 400);
+		/* alert("1>> " +(Number(year) - 1) * 365);
+		alert("2>> " +Math.floor((Number(year) - 1) / 4));
+		alert("3>> " +Math.floor((Number(year) - 1) / 100));
+		alert("4>> " +Math.floor((Number(year) - 1) / 400)); */
+		
+		 var nalsu1 = (Number(year) - 1) * 365;
+		//alert(nalsu1); 
+		
+		var nalsu2 = Math.floor((Number(year) - 1) / 4);
+		//alert(nalsu2);
+		
+		
+		//nalsu3 과 nalsu4는 왜 안되는 것인가? → 뒤에 괄호 하나 더넣음.. ㅅㅂ
+		//var nalsu3 = Math.floor((Number(year) - 1) / 100));
+		var nalsu3 = Math.floor((Number(year) - 1) / 100);
+		//alert(nalsu3);
+		
+		var nalsu4 = Math.floor((Number(year) - 1) / 400);
+		//alert(nalsu4);
+		//var nalsu3 = 0;
+		//var nalsu4 = 0;
+		
+		
+		//2021년도 까지 일수
+		var nalsuResultY = Number(nalsu1) + Number(nalsu2) - Number(nalsu3) + Number(nalsu4);
+		//입력달 직전 까지 더하기..
+		var nalsuResultM = 0;
+		for (var i = 0; i < Number(month-1); i++)
+		{
+			nalsuResultM += dayArr[i];
+		}
+		
+		//최종 총 날수!
+		var nalsu = nalsuResultY + nalsuResultM;
+		//alert(nalsu); 
+		
+		
+		//시작요일
+		var startW = nalsu % 7;
+		//alert(startW);
+		var wStr = "";
+		switch (startW)
+		{
+		
+			case 0: wStr = "월"; break;
+			case 1: wStr = "화"; break;
+			case 2: wStr = "수"; break;
+			case 3: wStr = "목"; break;
+			case 4: wStr = "금"; break;
+			case 5: wStr = "토"; break;
+			case 6: wStr = "일"; break;
+
+		}
+		//alert(wStr);
+		
+		
+		//table 접근
+		var tableNode = "";
+		tableNode = document.getElementById("calendarTb1");
+		
+		//tr 노드 생성
+		var trNode = document.createElement("tr");
+		
+		//조건1 x는 시작날짜 수 (목요일시작은 x == 3) 
+		//      x ++ 해서 x == 6되면 tr을 또 생성해야함.
+		
+		//td중에서 목요일에 시작하면 
+		//일 월 화 수 → 공백인디
+		
+		/* for (var i = 1; i <=dayArr[month]; i++)
+		{
+			trNode.appendChild(createTD(i));
+		} */
+		
+		/* for (var i = 0; i < 7; i++)
+		{
+			if (i < startW)
+			{
+				trNode.appendChild(createTD("♥"));
+			}
+			else
+			{
+				for (var j = 1; j <= dayArr[month]; j++)
+				{
+					trNode.appendChild(createTD(i));
+				}
+			}
+			tableNode.appendChild(trNode);
+		} */
+		
+		for (var j = 0; j <=startW; j++)
+		{
+			trNode.appendChild(createTD(" "));
+		}
+		
+		for (var i = 1; i <= dayArr[month-1]; i++)
+		{
+			trNode.appendChild(createTD(i));
+			if (startW + i == 6)
+			{
+				tableNode.appendChild(trNode);
+				trNode = document.createElement("tr");
+			}
+			else if ((startW + 1 + i) % 7 == 0)
+			{
+				tableNode.appendChild(trNode);
+				trNode = document.createElement("tr");
+			}
+			tableNode.appendChild(trNode);
+		}
+		
+	}
+	
+	//매개변수 → 반복문을 통해 1 ~ 31 일 등 날짜 담기.
+	function createTD(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+
+</script>
+
+</head>
+<body>
+<div>
+	<h1>테이블 동적 생성으로 만년달력 그리기</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type= "text" id = "txtYear" class = "txt" style="width: 67px;"> 년
+		<input type= "text" id = "txtMonth" class = "txt" style="width: 67px;"> 월
+		<br><br>
+		
+		<button type="button" class ="btn" style="width: 200px;" onclick="actionCalndar()">만년달력 그리기</button>
+		<br><br>
+		
+		<table border = "1" id = "calendarTb1">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</table>
+	</form>
+</div>
+
+</body>
+</html>

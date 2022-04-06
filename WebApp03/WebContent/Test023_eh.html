@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test023.html</title>
+<style type="text/css">
+	#suup {background-color: pink;}
+	#my {width: 300pt;}
+</style>
+
+<script type="text/javascript">
+	
+	
+	
+	//tlqkf dhofzpsks ajdcjdgkfRK ahtgkrpTek anjsthflswl ahfmrpTrh rmsid djfudnj 
+	//rnwhwkqsmsrjqnxj ahtgksmsep anjs ㅓㄴdi ahtgo dksgkffo sk roqkfwk ahtgo..
+	/* function inputSJ()
+	{
+		//alert("짜잔");
+		var str = "";
+		var nStr = "";
+		var arr1 = new Array();
+		var arrResult = new Array();
+		var arrName = new Array();
+		var arrKor = new Array();
+		var arrEng = new Array();
+		var arrMat = new Array();
+		var arrTot = new Array();
+		var arrRank = new Array();
+		var count = 0;
+		
+		var name = "";
+		var kor = 0;
+		var eng = 0;
+		var mat = 0;
+		var tot = 0;
+		var rank = 0;
+		
+		var n = 0;
+		
+		do
+		{
+			//초기화
+			nStr ="";
+			str = prompt("※ 『.』 입력 시, 종료, \n이름 국어 영어 수학 ( "+ (count +1) + ") : ");
+			//alert(str);
+			
+			if (str == ".")
+				break;
+			
+			 arr1 = str.split(" ");
+			//alert(arr1);
+			name = arr1[0];
+			nStr += name + " ";
+			//alert("name까지 nStr에 붙혀서 출력: " +  nStr);
+			kor = arr1[1];
+			nStr += kor + " ";
+			eng = arr1[2];
+			nStr += eng + " ";
+			mat = arr1[3];
+			nStr += mat + " ";
+			
+			tot = parseInt(kor) + parseInt(eng) + parseInt(mat);
+			nStr += tot + " ";
+			
+			alert("arr2에 넣기 전 : " + nStr);
+			
+			arr2[n] += nStr + "\n";
+			n++;
+			
+			alert("arr2[0] 번째 : " + arr2[0]);
+			alert("arr2[1] 번째 : " + arr2[1]);
+			
+			
+			
+			//alert(name+ "||" + kor +"||" +eng + "||"+mat);
+			
+			
+			
+			count++; */
+		} while (true);
+		
+		document.getElementById("memberCount").value = arr2.length;
+		document.getElementById("textArea").value += "이름 국어 영어 수학 총점 등수\n";
+		
+		
+		for (var j = 0; j < arr2.length; j++)
+		{
+			document.getElementById("textArea").value += arr2[j];
+		} 
+	} */
+	
+	
+	
+	
+	
+</script>
+
+
+</head>
+<body>
+<div>
+	<h3>
+	『prompt()』를 활용하여 여러 명의 성적 데이터를 입력받고,<br>
+	등수를 부여하여, 리스트를 출력하는 페이지를 구성한다.<br>
+	HTML, CSS, Javascript 활용.<br>
+	</h3>
+</div>
+<div id = "suup">
+	<h4>수업풀이</h4>
+</div>
+
+<div >
+	<h1>내 풀이</h1><br><hr>
+	
+	<form>
+		<div id = "my">
+			<input type= "button" class ="inputBtn" id = "inputBtn" value = "성적 기본 입력" style="align-content:center; width: 300pt" onclick="inputSJ()">
+			<br>
+			<table>
+				<tr> 전체 인원 수 : </tr>
+				<tr> <input type = "text" class = "txtBox" id = "memberCount" style="width: 80px" readonly="readonly"></tr>
+				<tr> 명 </tr>
+			</table>
+		
+		</div>
+		<br>
+		<div>
+			
+		</div>
+		<br>
+		<div>
+			<textarea rows="10" cols="50" id = "textArea" readonly="readonly"></textarea>
+		</div>
+		
+	</form>
+	
+</div>
+
+</body>
+</html>

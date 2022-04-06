@@ -3,6 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Test022.html</title>
+<style type="text/css">
+	* {color: #223322;}
+	input {font-family: 나눔고딕코딩; font-weight: bold;}
+	input:focus {background-color: #eeeedd;}
+	input.btn {width: 90px ; font-weight: bold; font-family: 맑은 고딕}
+	input.btn:hover {color: orange;}
+	td {text-align: center;}
+	.txt {text-align: right;}
+	textarea {font-family: 나눔고딕코딩; font-weight: bold;}
+</style>
+
+
+<script type="text/javascript">
+	function addMember()
+	{
+		//alert("함수 호출");
+		var str = "";
+		var arr = new Array();
+		var n = 0;
+		alert("입장불가!");
+		do
+		{
+			alert("따란 do와일입장!");
+			// ※ 『prompt()』 대화창을 통해 데이터 입력 안내 → 입력 데이터 변수를 str 에 담아내기
+			str = prompt("이름 전화번호(" + (n+1) + " ) : ");
+			//alert(str);
+			
+			/* if (str == null || str == "." || str = " " || str == "")
+				break; */
+			
+			arr[n] = str;
+			n++;
+		} while (true);
+		
+		document.getElementById("txtCount").value = arr.length;
+		
+		document.getElemetById("txtResult").value = "이름    전화번호\n";
+		
+		for(var n = 0; n<arr.length; n++)
+		{
+			document.getElementById("txtResult").value += arr[n] + "\n";
+		}
+	}
+
+</script>
 </head>
 <body>
 <!-- 
@@ -30,13 +75,13 @@
 
 <div>
 	<form>
-		<input type = "button" value ="회원 정보 입력" class = "btn" style="width: 200px";>
+		<input type = "button" value ="회원 정보 입력" class = "btn" style="width: 200px"; onclick="addMember()">
 		<br><br>
 		
-		전체 회원 수<input type = "text" id = txtCount"; class = "txt" readonly="readonly"style="width:  20px";height="10px">
+		전체 회원 수<input type = "text" id = "txtCount" class = "txt" readonly="readonly"style="width:  20px";height="10px">
 		명
 		<br>
-		<textarea rows="10" cols="20" id = "txResult" readonly="readonly" style="margin: 2px"></textarea>
+		<textarea rows="10" cols="20" id = "txtResult" readonly="readonly" style="margin: 2px"></textarea>
 	</form>
 	
 	

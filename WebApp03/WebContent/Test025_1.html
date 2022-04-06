@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test025.html</title>
+<style type="text/css">
+	th {width: 50px;}
+	td {width: 50px;}
+</style>
+
+<script type="text/javascript">
+
+	function actionCalndar()
+	{
+		//alert("호출");
+		
+		//사용자가 입력한 년, 월 가져오기
+		var yearStr = document.getElementById("txtYear").value;
+		var monthStr = document.getElementById("txtMonth").value;
+		
+		
+		
+		//문자열 형태로 확인해 볼 수 있는 유효성 검사 삽입 가능~!!!
+		var year = parseInt(yearStr);
+		var month = parseInt(monthStr);
+		
+		//확인
+		//alert("입력년도 : " + year + ", 입력월 : " + month);
+		/* if (year < 1)
+		{
+			alert("입력 년도는 1이상으로 입력 가능.");
+			return;
+		}
+		if (month < 1 || month > 12)
+		{
+			alert("입력 월의 범위는 1월 ~ 12월 입니다.");
+		} */
+		
+		if (year < 1 || month < 1 || month > 12)
+		{
+			alert("입력한 년 또는 월이 유효하지 않습니다.");
+			return;
+		}
+		
+		
+		
+		// ※ 사용자가 입력한 년도, 월 → 여기에 해당하는 1일의 요일 알아내기.
+		
+		// Math.floor() → 소수부 절삭 == parseInt()
+		// Math.ceil()  → 소수부 올림 
+		// Math.round() → 소수부 반올림
+		//총 일수 누적합.
+		var total = 0;
+		
+		// 1단계. 1년 1월 1일 부터...입력 년도 기준 전년도 12월 31일 까지의 총 날짜 수 구하기
+		total = (year-1) * 365 + parseInt((year-1)/4) - parseInt((year-1)/100) + parseInt((year-1)/400); 
+		
+		//의미 확인
+		//alert("1년1월1일 ~ " + (year-1) + "년12월31일 : " + total);
+		//--==>>738155
+		
+		
+		// 2단계. 해당 년도 1월 1일 부터 ... 해당 년도 해당 월 1일 까지의 총 날짜 수 구하기
+		var m = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		
+		//alert(m.length);
+		//방법1. m[1]을 바꾸지 않음.
+		/*
+		for (var i = 0; i < month-1; i++)
+		{
+			total += m[i];
+		}
+		//1일까지 더해진 상황.
+		total ++;
+		
+		
+		//해당 년도 윤년 / 평년 (1,2월 입력은 상관이 없다.)
+		 if (month >= 3 && (year%4==0 && year%100!=0 || year%400 == 0))
+		{
+			//윤년이면 1을 증가.
+			total++;
+		} */
+		
+		//방법2. m[1]을 바꿈.
+		if ((year%4 == 0 && year%100 != 0) || year % 400 ==0)
+			m[1] = 29;
+		for (var i = 0; i < month-1; i++)
+		{
+			total += m[i];
+		}		
+		
+		total ++;
+		
+		//확인
+		//alert("1년1월1일 ~ " + year + "년" + month + "월1일 : " + total + "일");
+		//--==>>1년1월1일 ~ 2022년4월1일 : 738246일
+		
+		
+		
+		//3단계 . 해당 년도 해당 월의 첫 날(1일)의 요일 구하기
+		var days = total % 7;
+		
+		//확인
+		//alert(days);
+		//--==>> 5 (2022년 4월 기준) → 2022년 4월 1일은 금요일
+		//--==>> 3 (2022년 6월 기준) → 2022년 6월 1일은 수요일
+		
+		
+		//4단계. 해당 년도 해당 월의 마지막 날짜 구하기
+		//       (28일, 29일, 30일, 31일)
+		
+		var lastDay = m[month-1];
+		
+		// 방법1 방식으로 처리했을 경우 추가 연산(m 배열 값이 안바뀜)
+		/* if (month == 2 && (year%4 == 0 && year % 100 != 0 || year %400 == 0))
+		{
+			lastDay =29;
+		} */
+		
+		//확인
+		//alert(lastDay);
+		
+		
+		
+		//5단계. 해당 년도 해당 월 기준 달력 구성(출력, 그리기)
+		
+		
+		
+		// 5-1. 기존 테이블 활용하기 ----------------------------------------------------------------------------
+		/* var tableNode = document.getElementById("calendarTb1");		// <table id = "calendarTb1">...</table>
+		
+		var trNode = document.createElement("tr");					// <tr></tr>
+		
+		// 해당 월의 1일이 시작되기 전에 빈칸 td 채우기
+		for (var i = 0; i <days; i++)
+		{
+			trNode.appendChild(createTdNode(" "));
+		}
+		
+		// 1일 부터 ... 해당 월의 마지막 날짜까지 td 채우기
+		var d= 1;
+		for (d = 1; d <=lastDay; d++)
+		{
+			trNode.appendChild(createTdNode(d));
+			
+			// ※※※※※※※※※※※※
+			// 일요일을 그리기 시작할 때...
+			// 기존 tr 구성을 마무리하고
+			// 다시 새로운 tr을 구성
+			
+			
+			//1~31까지 커지는 숫자 + 시작날짜
+			if((d+days)%7 == 0)									// 일요일을 그리기 전에
+			{
+				tableNode.appendChild(trNode);					// trNode 를 tableNode 에 추가
+				trNode = document.createElement("tr")			// 새로운 trNode 구성
+			}
+			
+			
+		}
+		
+		//alert(d);
+		//alert(Math.floor(d/7));
+		//--==>>4 (2022.6월 기준 , 목요일이 마지막 날.)
+		
+		
+		
+		// 날짜 구성 이후 마지막 빈칸 td 채우기
+		// 최종적으로 처리된 날짜가 일요일 개행이 적용되지 않은 경우에만..
+		
+		//((d-1)+days) % 7 == 0  → 일요일!
+		
+		if (((d-1)+days) % 7 != 0)
+		{
+			// d 증가 check!!
+			for (var i = 0; i <7; i++,d++)
+			{
+				trNode.appendChild(createTdNode(" "));
+				
+				
+				//d 확인 잘하슈. 일요일이 되면
+				if ((d+days) % 7 ==0)
+				{
+					tableNode.appendChild(trNode);
+					break;
+				}
+			}
+		}
+		
+		
+		//tableNode.appendChild(trNode);
+		 */
+		//-------------------------------------------------------------------------------------------------------
+		
+		
+		
+		
+		// 5-2. 새로운 달력 그리기 ----------------------------------------------------------------------------
+		//-------------------------------------------------------------------------------------------------------
+	
+	}
+	
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+
+
+</script>
+
+</head>
+<body>
+<div>
+	<h1>테이블 동적 생성으로 만년달력 그리기(풀이)</h1>
+	<hr>
+</div>
+
+<div>
+	<form>
+		<input type= "text" id = "txtYear" class = "txt" style="width: 67px;"> 년
+		<input type= "text" id = "txtMonth" class = "txt" style="width: 67px;"> 월
+		<br><br>
+		
+		<button type="button" class ="btn" style="width: 200px;" onclick="actionCalndar()">만년달력 그리기</button>
+		<br><br>
+		
+		<table border = "1" id = "calendarTb1">
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</table>
+	</form>
+</div>
+
+</body>
+</html>
