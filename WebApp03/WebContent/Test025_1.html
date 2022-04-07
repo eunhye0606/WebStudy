@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>Test025.html</title>
 <style type="text/css">
-	th {width: 50px;}
-	td {width: 50px;}
+	th {width: 50px; background-color: pink;}
+	td {width: 50px; background-color: #FFD8D8;}
 </style>
 
 <script type="text/javascript">
@@ -195,7 +195,213 @@
 		
 		
 		
-		// 5-2. 새로운 달력 그리기 ----------------------------------------------------------------------------
+		// 5-2. tbody 활용하기  ----------------------------------------------------------------------------
+		
+		/* var tableNode = document.getElementById("calendarTb1");
+		var tbodyNode = null;
+		
+		
+		//테스트
+		//alert(tableNode);
+		//--==>> [object HTMLTableElement]
+		
+		//alert(tableNode.childNodes[0]);
+		//--==>> [object Text]
+		
+		
+		//※ nodeType 브라우저마다 다름.
+		//alert(tableNode.childNodes[0].nodeType);
+		//--=>> 3
+		
+		//alert(tableNode.childNodes[1]);
+		//--==>> [object HTMLTableSectionElement]
+		
+		//alert(tableNode.childNodes[1].nodeType);
+		//--==>> 1
+		
+		if (tableNode.childNodes[0].nodeType == 1)
+		{
+			tbodyNode = tableNode.childNodes[0];
+			//          [object Text]
+		}
+		else
+			tbodyNode = tableNode.childNodes[1];
+			//          [object HTMLTableSectionElement]
+		
+		//확인
+		//alert(tbodyNode.childNodes.length);
+		//--==>> 2(tbodyNode 안에 tr / td를 말하는 것이 아님.)
+		//       1번째는 로우
+		//       2번째는 텍스트노드
+		//alert(tbodyNode.childNodes[0]);
+		//--==>> [object HTMLTableRowElement]
+		//alert(tbodyNode.childNodes[1]);
+		//--==>> [object Text]
+		
+		
+		// tbodyNode 의 기존 자식 노드 삭제 과정
+		for (var n = tbodyNode.childNodes.length-1; n>= 0; n--)
+		{
+			tbodyNode.removeChild(tbodyNode.childNodes[n]);
+			
+		}
+		
+		// 요일 이름 다시 출력하기
+		var trNode = document.createElement("tr");
+		var dayName = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+		for (var i = 0; i < dayName.length; i++)
+		{
+			trNode.appendChild(createTdNode(dayName[i]));
+		}
+		tbodyNode.appendChild(trNode);
+		
+		
+		
+		//여기서부터는 5-1 날짜 출력하기 ~ ~ 
+		var tableNode = document.getElementById("calendarTb1");		// <table id = "calendarTb1">...</table>
+		
+		var trNode = document.createElement("tr");					// <tr></tr>
+		
+		// 해당 월의 1일이 시작되기 전에 빈칸 td 채우기
+		for (var i = 0; i <days; i++)
+		{
+			trNode.appendChild(createTdNode(" "));
+		}
+		
+		// 1일 부터 ... 해당 월의 마지막 날짜까지 td 채우기
+		var d= 1;
+		for (d = 1; d <=lastDay; d++)
+		{
+			trNode.appendChild(createTdNode(d));
+			
+			// ※※※※※※※※※※※※
+			// 일요일을 그리기 시작할 때...
+			// 기존 tr 구성을 마무리하고
+			// 다시 새로운 tr을 구성
+			
+			
+			//1~31까지 커지는 숫자 + 시작날짜
+			if((d+days)%7 == 0)									// 일요일을 그리기 전에
+			{
+				tableNode.appendChild(trNode);					// trNode 를 tableNode 에 추가
+				trNode = document.createElement("tr")			// 새로운 trNode 구성
+			}
+			
+			
+		}
+		
+		//alert(d);
+		//alert(Math.floor(d/7));
+		//--==>>4 (2022.6월 기준 , 목요일이 마지막 날.)
+		
+		
+		
+		// 날짜 구성 이후 마지막 빈칸 td 채우기
+		// 최종적으로 처리된 날짜가 일요일 개행이 적용되지 않은 경우에만..
+		
+		//((d-1)+days) % 7 == 0  → 일요일!
+		
+		if (((d-1)+days) % 7 != 0)
+		{
+			// d 증가 check!!
+			for (var i = 0; i <7; i++,d++)
+			{
+				trNode.appendChild(createTdNode(" "));
+				
+				
+				//d 확인 잘하슈. 일요일이 되면
+				if ((d+days) % 7 ==0)
+				{
+					tableNode.appendChild(trNode);
+					break;
+				}
+			}
+		} */
+		
+		//-------------------------------------------------------------------------------------------------------
+		
+		
+		
+		// 5-3. 새로운 달력 그리기 ----------------------------------------------------------------------------
+		
+		var calendarBox = document.getElementById("newCalendarBox");
+		
+		var tableNode = document.createElement("table");	//<table></table>
+		
+		var trNode = document.createElement("tr");
+		
+		var dayName = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+		for (var i = 0; i < dayName.length; i++)
+			trNode.appendChild(createTdNode(dayName[i]));
+		tableNode.appendChild(trNode);	
+		
+		
+		
+		//여기서부터는 5-1 날짜 출력하기 ~ ~ 
+		//var tableNode = document.getElementById("calendarTb1");		// <table id = "calendarTb1">...</table>
+		
+		var trNode = document.createElement("tr");					// <tr></tr>
+		
+		// 해당 월의 1일이 시작되기 전에 빈칸 td 채우기
+		for (var i = 0; i <days; i++)
+		{
+			trNode.appendChild(createTdNode(" "));
+		}
+		
+		// 1일 부터 ... 해당 월의 마지막 날짜까지 td 채우기
+		var d= 1;
+		for (d = 1; d <=lastDay; d++)
+		{
+			trNode.appendChild(createTdNode(d));
+			
+			// ※※※※※※※※※※※※
+			// 일요일을 그리기 시작할 때...
+			// 기존 tr 구성을 마무리하고
+			// 다시 새로운 tr을 구성
+			
+			
+			//1~31까지 커지는 숫자 + 시작날짜
+			if((d+days)%7 == 0)									// 일요일을 그리기 전에
+			{
+				tableNode.appendChild(trNode);					// trNode 를 tableNode 에 추가
+				trNode = document.createElement("tr")			// 새로운 trNode 구성
+			}
+			
+			
+		}
+		
+		//alert(d);
+		//alert(Math.floor(d/7));
+		//--==>>4 (2022.6월 기준 , 목요일이 마지막 날.)
+		
+		
+		
+		// 날짜 구성 이후 마지막 빈칸 td 채우기
+		// 최종적으로 처리된 날짜가 일요일 개행이 적용되지 않은 경우에만..
+		
+		//((d-1)+days) % 7 == 0  → 일요일!
+		
+		if (((d-1)+days) % 7 != 0)
+		{
+			// d 증가 check!!
+			for (var i = 0; i <7; i++,d++)
+			{
+				trNode.appendChild(createTdNode(" "));
+				
+				
+				//d 확인 잘하슈. 일요일이 되면
+				if ((d+days) % 7 ==0)
+				{
+					tableNode.appendChild(trNode);
+					break;
+				}
+			}
+		} 
+		
+		
+		
+		
+		calendarBox.appendChild(tableNode);
 		//-------------------------------------------------------------------------------------------------------
 	
 	}
@@ -227,7 +433,7 @@
 		<button type="button" class ="btn" style="width: 200px;" onclick="actionCalndar()">만년달력 그리기</button>
 		<br><br>
 		
-		<table border = "1" id = "calendarTb1">
+		<!-- <table border = "1" id = "calendarTb1">
 			<tr>
 				<th>일</th>
 				<th>월</th>
@@ -237,7 +443,13 @@
 				<th>금</th>
 				<th>토</th>
 			</tr>
-		</table>
+		</table> -->
+		
+		
+		
+		<br><br><br><br>
+		<div id = "newCalendarBox">
+		</div>
 	</form>
 </div>
 
