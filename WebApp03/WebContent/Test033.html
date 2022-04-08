@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test033.html</title>
+<style type="text/css">
+	a {font-size: small;}
+</style>
+<script type="text/javascript">
+	function myAddr(addr)
+	{
+		//alert("확인.");
+		//alert(addr);
+		
+		//※ 불가. Test033.html에는 addr1의 아이디가 없다.
+		//document.getElementById("add1r").value = "1234";
+		
+		
+		//window == Test033.html
+		//window.opener == Test032.html
+		
+		
+		//※ opener : Test033.html을 연 (opener)한 문저 → Test032.html
+		window.opener.document.getElementById("addr1").value = addr;
+		
+		
+		// ※ Test032.html의 span에도 값을 넣을 수 있다.
+		//    즉, input이 아닌 text공간에도 값을 넣을 수 있다는 뜻!
+		//※※ 인터넷익스플로어(IE) 용
+		//window.opener.document.getElementById("txt1").innerText = addr;
+		// ※※ 크롬(CR), 파이어폭스(FF) 용
+		window.opener.document.getElementById("txt1").innerHTML = addr;
+		
+		
+		window.close();
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<form>
+		주소 검색
+		<input>
+		<input type = "button" value = "검색"><br><br>
+		
+		<!-- ↓ 이러면 부가적으로 열린 페이지가 바뀜. onclick은 a태그 안에서 사용불가 -->
+		<!-- <a href = "Test032.html">서울 마포구 서교로 1가 (1 ~ 110번지)</a><br> -->
+		
+		<!-- ※ 접두어 『javascript:』 + 함수명 ()  -->
+		<a href = "javascript:myAddr('04044 서울 마포구 서교로 1가')">서울 마포구 서교로 1가 (1 ~ 110번지)</a><br>
+		<a href = "javascript:myAddr('04045 서울 마포구 서교로 2가')">서울 마포구 서교로 2가 (111 ~ 123번지)</a><br>
+		<a href = "javascript:myAddr('04046 서울 마포구 서교로 3가')">서울 마포구 서교로 3가 (124 ~ 131번지)</a><br>
+		<a href = "javascript:myAddr('04047 서울 마포구 서교로 4가')">서울 마포구 서교로 4가 (132 ~ 184번지)</a><br>
+		<a href = "javascript:myAddr('04048 서울 마포구 서교로 5가')">서울 마포구 서교로 5가 (185 ~ 192번지)</a><br>
+		<a href = "javascript:myAddr('04049 서울 마포구 서교로 6가')">서울 마포구 서교로 6가 (193 ~ 215번지)</a><br>
+		
+		
+	</form>
+</div>
+
+</body>
+</html>

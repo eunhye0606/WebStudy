@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test031.html</title>
+<style type="text/css">
+	body {width: 1000px; height: 1000px;}
+	div {position: absolute; left: 50%; top: 50%;margin: -150px 0px 0px -200px;}
+	#memberList {width: 100%;} 
+	input.btn {width: 130px;}
+	input.btn:focus {color: orange; font-weight: bold;}
+	
+</style>
+
+<script type="text/javascript">
+
+	// select 를 다루어보기 위한 테스트 함수 정의
+	function selectTest()
+	{
+		//확인
+		//alert("함수호출");
+		
+		//첫 번째 방법
+		//var position = document.getElementById("userPosition").value;
+		
+		//확인
+		//alert(position);
+		
+		//두 번째 방법
+		var positionObj = document.getElementById("userPosition");
+		var positionOptions = positionObj.options;
+		var positionMsg = "";
+		
+		//확인
+		//alert(positionOptions);
+		//--==>>[object HTMLOptionsCollection] → 자바스크립트 배열
+		
+		//alert(positionOptions.length);
+		//--==>> 4
+		
+		for (var i = 0; i < positionOptions.length; i++)
+		{
+			//확인
+			//alert(positionOptions[i].selected);
+			//--==>> 선택된 옵션 항목에 따라 true / false 형태로 확인
+			if (positionOptions[i].selected)
+			{
+				// 단일 선택
+				//positionMsg = positionOptions[i].value;
+				//break;
+				
+				// 다중 선택
+				//positionMsg +=positionOptions[i].value + " ";
+				
+			}
+		}
+		
+		//확인
+		//alert(positionMsg);
+		
+		
+		//세 번째 방법(selectBox에서 가장 많이 사용.)
+		var positionObj = document.getElementById("userPosition");
+		
+		//확인
+		//alert(positionObj.selectedIndex);
+		//--==>> 부장 → 0 , 과장 → 1, 대리 → 2, 사원 → 3 
+		
+		//확인
+		//alert(positionObj.options[2].value);
+		//--==>> cde(대리)
+		
+		var positionMsg = positionObj.options[positionObj.selectedIndex].value;
+		
+		//확인
+		//alert(positionMsg);
+	}
+	
+	function addMember()
+	{
+		//alert("함수호출이용");
+		
+		var uName = document.getElementById("userName").value;
+		//alert(uName);
+		
+		var uSsn = document.getElementById("userSsn").value;
+		//alert(uSsn);
+		
+		//방법 여러개
+		/* var uCity = document.getElementById("userCity").value; */
+		var cityObj = document.getElementById("userCity");
+		
+		
+		//alert(cityObj.selectedIndex);
+		//--==>> 서울 → 0 , 대전 → 1, 광주 → 2 , 대구 → 3
+		
+		//alert(cityObj.options[cityObj.selectedIndex].value);
+		
+		var uCity = cityObj.options[cityObj.selectedIndex].value;
+		//alert(uCity);
+		
+		
+		var buseoObj = document.getElementById("userDepartment");
+		var uBuseo = buseoObj.options[buseoObj.selectedIndex].value;
+		//alert(uBuseo);
+		
+		var positionObj = document.getElementById("userPosition");
+		var uPosition = positionObj.options[positionObj.selectedIndex].value;
+		//alert(uPosition);
+		
+		var uBasicPay = document.getElementById("userBasicPay").value;
+		//alert(uBasicPay);
+		
+		
+		
+		
+		
+		
+		
+		
+		//테이블 그리기 ------------------------------------
+		var tableNode = document.getElementById("memberList");
+		var trNode = document.createElement("tr");
+		
+		trNode.appendChild(createTdNode(uName));
+		trNode.appendChild(createTdNode(uSsn));
+		trNode.appendChild(createTdNode(uCity));
+		trNode.appendChild(createTdNode(uBuseo));
+		trNode.appendChild(createTdNode(uPosition));
+		trNode.appendChild(createTdNode(uBasicPay));
+		
+		tableNode.appendChild(trNode);
+		//--------------------------------------------------
+		
+		// ※
+		//formClear();
+		document.forms[0].reset();
+		
+		document.getElementById("userName").focus();
+		
+	} 
+	
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		tdNode.appendChild(textNode);
+		//alert("tq");
+		return tdNode;
+	}
+	
+	
+	//이렇게 정의하지 않아도 (1)
+	/* function formClear()
+	{
+		document.getElementById("userName").value = "";
+		document.getElementById("userSsn").value = "";
+		
+		var cityObj = document.getElementById("userCity");
+		cityObj.options[0].selected = true;
+		
+		var buseoObj = document.getElementById("userDepartment");
+		buseoObj.options[3].selected = true;
+		
+		var jikwiObj = document.getElementById("userPosition");
+		jikwiObj.options[3].selected = true;
+		
+		var basicPay = document.getElementById("userBasicPay").value = "";
+	} */
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+
+	<h2>선택목록(select) 다루기</h2>
+	
+	<form>
+		<table>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" id = "userName" class ="textBox"></td>
+			</tr>
+			<tr>
+				<td>주민번호</td>
+				<td><input type="text" id = "userSsn" class ="textBox"></td>
+			</tr>
+			<tr>
+				<td>지역</td>
+				<td>
+				<!-- <input type="text" id = "userCity" class ="textBox"> -->
+					<select id = "userCity">
+						<option value = "1123(서울)">서울</option>
+						<option value = "2380(대전)">대전</option>
+						<option value = "5567(광주)">광주</option>
+						<option value = "9984(대구)">대구</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>부서</td>
+				<td>
+					<!-- <input type="text" id = "userDepartment" class ="textBox"> -->
+					<select id = "userDepartment">
+						<option value = "9987(개발부)">개발부</option>
+						<option value = "998(인사부)">인사부</option>
+						<option value = "9989(자재부)">자재부</option>
+						<option value = "9990(영업부)" selected="selected">영업부</option>
+						<option value = "9991(총무부)">총무부</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>직위</td>
+				<td>
+					<!-- <input type="text" id = "userPosition" class ="textBox"> -->
+					<select id = "userPosition">
+						<option value = "zaq(부장)">부장</option>
+						<option value = "xsw(과장)">과장</option>
+						<option value = "cde(대리)">대리</option>
+						<option value = "vfr(사원)" selected="selected">사원</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>기본급</td>
+				<td><input type="text" id = "userBasicPay" class ="textBox"></td>
+			</tr>
+		</table>
+		<!-- <input type="button" value = "직원 추가" class = "btn" onclick="selectTest()"> -->
+		<input type="button" value = "직원 추가" class = "btn" onclick="addMember()">
+		<input type="reset" value = "입력 취소" class = "btn">	
+		<br><br>
+		
+		<table id = "memberList" border="1">
+			<tr>
+				<td>이름</td>
+				<td>지역</td>
+				<td>주민번호</td>
+				<td>부서</td>
+				<td>직위</td>
+				<td>기본급</td>
+			</tr>
+		</table>
+		
+	</form>
+</div>
+</body>
+</html>

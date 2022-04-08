@@ -28,18 +28,27 @@
 	
 	function actionCategory()
 	{
-		var checkObj = document.getElementsByName("checkGroup");
+		
+		
+		//alert(checkObj[0] + "  " +checkObj[1] + "   "+checkObj[2]);
+		
+		checkObj = document.getElementsByName("checkGroup");
+		
+		
+		
 		var selectCount = 0;
 		var result = "";
-		
 		for (var i = 0; i < checkObj.length; i++)
 		{
 			if (checkObj[i].checked)
 			{
+				//alert("if문안에서 체크확인 : " + checkObj[i].value);
 				result += checkObj[i].value + " ";
 				selectCount++;
 			}
 		}
+		//alert(checkObj[0].value + "  " +checkObj[1].value + "   "+checkObj[2].value);
+		
 		if (count == 0)
 		{
 			alert("사이즈를 먼저 선택해주세요.");
@@ -47,15 +56,33 @@
 			{
 				if (checkObj[i].checked)
 				{
+					//alert(checkObj[0].value + "  " +checkObj[1].value + "   "+checkObj[2].value);
+					//alert("사이즈먼저에서 check : " + checkObj[i].value);
 					checkObj[i].checked = false;
 				}
 			}
 		}
-		else if (selectCount > count)
+		else if (Number(selectCount) > Number(count))
 		{
-			alert("선택가능한 종류의 수를 초과하였습니다.");
+			//alert("선택가능한 종류의 수를 초과하였습니다.");
+			alert("선택가능한 종류의 수 : " + count);
+			alert("선택한 종류의 수 : " + selectCount);
+			//alert("배열길이 " + checkObj.length);
+			//alert(checkObj[0].value);
+			//alert(checkObj[1].value);
+			//alert(checkObj[2].value);
+			//alert("result : " + result);
 			
-			checkObj[selectCount].checked = false;
+			for (var i = 0; i < checkObj.length; i++)
+			{
+				if (checkObj[i].checked)
+				{
+					//alert("선택종류[0]:"+checkObj[0].value);
+					//alert("선택종류[1]:"+checkObj[1].value);
+					//alert("선택종류[2]:"+checkObj[2].value);
+					checkObj[i].checked = false;
+				} 
+			}
 		}
 		/* else if (selectCount == count)
 		{

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test030_1.html, 아이스크림 주문 수업 풀이</title>
+<style type="text/css">
+	body {width:1000px;height:1000px;}
+	#div1 {position: absolute; left: 50%; top: 50%;margin: -150px 0px 0px -200px;}
+	* {text-align: center;}
+	form {text-align: center;}
+</style>
+<script type="text/javascript">
+
+	var cnt = 0;			//-- 선택할 수 있는 아이스크림의 갯수
+	var userCnt = 0;		//-- 사용자가 선택한 아이스크림의 갯수
+	function countSet(val)
+	{
+		//alert(val);
+		
+		//매개변수 넘겨받은 데이터를 이용하여
+		//선택할 수 있는 아이스크림의 갯수 설정
+		cnt = parseInt(val);
+		
+		alert("당신이 선택할 수 있는 아이스크림의 갯수는 "+ cnt +"개 입니다!");
+	}
+	function actionChoice(obj)
+	{
+		//alert("확인");
+		
+		//체크여부 확인
+		//alert(obj.checked)
+		//-- 체크 설정되며 클릭된 상황 vs 체크 해제되며 클릭된 상황 → 판단 가능
+		//--==>> true / false → 클릭 액션에 의해 check 되었을 때 true
+		
+		if (obj.checked)
+		{
+			if (userCnt >= cnt)
+			{
+				alert("선택할 수 있는 갯수를 초과하였습니다.");
+				obj.checked = false;
+				return;
+			}
+			
+			
+			//사용자가 선택한 갯수 증가
+			userCnt++;
+		}
+		else
+			// 사용자가 선택한 갯수 감소
+			userCnt--;
+		
+		//확인
+		//alert(cnt + "중 " + userCnt + "선택");
+		
+	}
+	
+</script>
+</head>
+<body>
+
+<div id ="div1">
+	<h1>자바스크립트 활용</h1>
+	<hr>
+	<h2>아이스크림 주문</h2>
+	
+	<form>
+		<h3>---사이즈 선택 ---</h3>
+																	   <!-- ==countSet(this.value) -->
+		<input type = "radio" name = "radioGroup" id = "a1" value ="1" onclick="countSet(1)">
+		<label for = "a1">싱글(1)</label>      
+		<input type = "radio" name = "radioGroup" id = "b1" value ="2" onclick="countSet(2)">
+		<label for = "b1">더블(2)</label>      
+		<input type = "radio" name = "radioGroup" id = "c1" value ="3" onclick="countSet(3)">
+		<label for = "c1">파인트(3)</label>    
+		<input type = "radio" name = "radioGroup" id = "d1" value ="4" onclick="countSet(4)">
+		<label for ="d1">쿼터(4)</label>       
+		<input type = "radio" name = "radioGroup" id = "e1" value ="5" onclick="countSet(5)">
+		<label for  = "e1">패밀리(5)</label>   
+		<input type = "radio" name = "radioGroup" id = "f1" value ="6" onclick="countSet(6)">
+		<label for = "f1">하프갤런(6)</label>
+		<br><br>
+		
+		<h3>---종류 선택---</h3>
+															<!-- this : id or value를 얻을 수 있음. -->
+		<input type= "checkbox" name = "checkGroup" id ="a2" value = "엄마는외계인" onclick="actionChoice(this)">
+		<label for = "a2">엄마는외계인</label>
+		<input type= "checkbox" name = "checkGroup" id ="b2" value = "레인보우샤베트" onclick="actionChoice(this)">
+		<label for ="b2">레인보우샤베트</label>
+		<input type= "checkbox" name = "checkGroup" id ="c2" value = "민트초코" onclick="actionChoice(this)">
+		<label for ="c2">민트초코</label>
+		<input type= "checkbox" name = "checkGroup" id ="d2" value = "바람과함께사라지다" onclick="actionChoice(this)">
+		<label for ="d2">바람과함께사라지다</label>
+		<br>
+		
+		<input type= "checkbox" name = "checkGroup" id ="e2" value = "뉴욕치즈케이크" onclick="actionChoice(this)">
+		<label for ="e2">뉴욕치즈케이크</label>
+		<input type= "checkbox" name = "checkGroup" id ="f2" value = "사랑에빠진딸기" onclick="actionChoice(this)">
+		<label for ="f2">사랑에빠진딸기</label>
+		<input type= "checkbox" name = "checkGroup" id ="g2" value = "초코나무숲" onclick="actionChoice(this)">
+		<label for = "g2">초코나무숲</label>
+		<input type= "checkbox" name = "checkGroup" id ="h2" value = "아몬드봉봉" onclick="actionChoice(this)">
+		<label for = "h2">아몬드봉봉</label>
+		<br>
+		
+		<input type= "checkbox" name = "checkGroup" id ="i2" value = "바닐라" onclick="actionChoice(this)">
+		<label for = "i2">바닐라</label>
+		<input type= "checkbox" name = "checkGroup" id ="j2" value = "쿠키앤크림" onclick="actionChoice(this)">
+		<label for = "j2">쿠키앤크림</label>
+		<input type= "checkbox" name = "checkGroup" id ="k2" value = "월넛" onclick="actionChoice(this)">
+		<label for = "k2">월넛</label>
+		<input type= "checkbox" name = "checkGroup" id ="l2" value = "31요거트" onclick="actionChoice(this)">
+		<label for = "l2">31요거트</label>		
+	</form>
+</div>
+
+</body>
+</html>

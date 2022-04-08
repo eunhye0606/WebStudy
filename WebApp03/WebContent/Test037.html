@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test037.html</title>
+<link rel = "stylesheet" type= "text/css" href="css/Main.css">
+
+<script type="text/javascript">
+	function objTest()
+	{
+		//alert("함수 호출 확인");
+		
+		//사용자 정의 객체
+		//Test036.html 에서와 마찬가지로 사용자 정의 객체 구성
+		//단, 차이점 확인
+		function Blog(b, d)
+		{
+			//주요 속성 구성
+			this.body=b;
+			this.date=d;
+			
+			//날짜 출력용 함수 정의
+			//이런 멤버 ===== 기능이야 (무명함수)
+			//   _______________여기가 무명함수의 이름역할.
+			this.userLocalString = function()
+			{
+				return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+			};
+		}
+		
+		// 객체 생성
+		var blog = new Blog("블로그 개설","2022-01-14");
+		var str = blog.body + " / " + blog.date;
+		
+		//확인
+		//alert(str);
+		
+		// Test036.html 에서와 마찬가지로
+		// 사용자 정의 객체 여러 개를 자바스크립트 배열 구조에 저장.
+		// ※ 단, 차이점 확인 
+		// → 자바스크립트 내장 객체 활용
+		var arr = [ new Blog("블로그 개설",new Date("2022/01/14"))
+        		   ,new Blog("블로그 레이아웃 구성",new Date("2022/02/10"))
+		   		   ,new Blog("생성자 이용한 객체 생성",new Date("2022/02/16")) ];
+		
+		/*
+			○ 자바스크립트에서의 날짜 데이터
+			   
+			   Date 객체는 날짜와 시간 작업을 하는데 사용되는
+			   가장 기본적인 자바스크립트 내장 객체이다.
+			   
+			   var now = new Date();
+			   
+			   now.toString();
+			   now.toLocaleString();
+			   now.toLocaleDateString();
+			   now.toLocaleTimeString();
+			   now.getFullYear();
+			   now.getMonth()+1;	//-- (월 단위는 자바에서처럼 0부터 시작한다.)
+			   now.getDate();
+			   
+			   ※ 주의
+			   
+			   	  var userDate1 = new Date("2022/04/08");		//o
+			   	  var userDate2 = new Date("2022, 04, 08"); 	//o
+			   	  var userDate3 = new Date("Apr, 8, 2022"); 	//o
+			   	  var userDate4 = new Date("2022-04-08");   	//x
+			   	  var userDate5 = new Date("20220408");     	//x
+		*/
+		
+		str = "<table border='1' class='table'>";
+		str += "<tr>";
+		str += "<th>제목</th><th>날짜</th>";
+		str += "</tr>";
+		
+		/* for (var i = 0; i < arr.length; i++)
+		{
+			str += "<tr>";
+			str += "<td>" + arr[i].body+ "</td>";
+			str += "<td>" + arr[i].date+ "</td>";
+			str += "</tr>";
+		} */
+		
+		//날짜데이터를 그대로 찍으면 표준시 어쩌구로 뜸.
+		//그래서!!
+		for (var i = 0; i < arr.length; i++)
+		{
+			str += "<tr>";
+			str += "<td>" + arr[i].body+ "</td>";
+			str += "<td>" + arr[i].userLocalString()+ "</td>";
+			str += "</tr>";
+		}
+		
+		str += "</table>";
+		
+		var result = document.getElementById("result");
+		
+		result.innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+	<h2>자바스크립트 객체(사용자 정의 객체)</h2>
+	<h3> - Test036.html 과 비교!<br> 객체안에 함수만듬!</h3>
+	<br>
+	<div>														<!-- 클래스 여러개 적용 가능
+																콤마 아님 공백임! -->							
+		<input type="button" value="사용자 정의 객체 테스트" class = "btn control" onclick="objTest()">
+		<br><br>
+		<span id = "result"></span>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test038.html</title>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+
+<script type="text/javascript">
+	
+	// 자바스크립트 배열 객체 구성
+	var boardArray = new Array();
+	
+	//사용자 정의 객체 구성(→ 생성자 함수 정의)
+	function Board(uName, uContent)
+	{
+		this.userName = uName;
+		this.content = uContent;
+		this.writeDay = new Date();
+	}
+	
+	// check!
+	// 프로토타입 구성을 통해... 사용자 정의 객체의 함수(기능, 동작) 정의
+	// 객체.프로토타입(숨겨진 속성!)
+	// 체인을 거는거랑 같은 의미
+	//Board.prototype.userLocalString = function() {};
+	Board.prototype.userLocalString = function()
+	{
+		return this.writeDay.getFullYear() + "-"
+					+ (this.writeDay.getMonth()+1) + "-"
+					+ this.writeDay.getDate() + "  "
+					+ this.writeDay.getHours() + ":"
+					+ this.writeDay.getMinutes() + ":"
+					+ this.writeDay.getSeconds();
+					
+		// 시 → getHours()
+		// 분 → getMinutes()
+		// 초 → getSeconds()
+	};
+	
+	
+	// 글쓰기 버튼이 클릭되었을 때 호출되어 기능하는 함수
+	function protoTest()
+	{
+		
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+	
+	<p>사용자 정의 객체 및 프로토타입 활용</p>
+	
+	<div>
+		<form>
+			<!-- 입력 폼을 구성하는 레이아웃 테이블 
+			     → 나중에 div로 구성해 보기!! -->
+			 <table class ="table">
+			 	<tr>
+			 		<th>작성자</th>
+			 		<td>
+			 			<input type="text" id = "uName" style="width: 150px;">
+			 		</td>
+			 	</tr>
+			 	<tr>
+			 		<th>내용</th>
+			 		<td>
+			 			<input type="text" id = "uContent" style="width: 600px;">
+			 		</td>
+			 	</tr>
+			 </table>
+			 <br>
+			 
+			 <input type="button" value ="글쓰기" class="btn" style="width: 680px; height: 40px;font-size: 18pt;"
+			 onclick="protoTest()">
+			 <br><br>
+			 
+			 
+			 <!-- 내용을 리스트 형식으로 볼 수 있도록 구성하는 -->
+			<table class ="table" border="1" id = "bbsTable">
+				<tr>
+					<th style="width: 40px;">번호</th>
+					<th style="width: 90px;">작성자</th>
+					<th style="width: 400px;">내용</th>
+					<th>작성일</th>
+				</tr>
+			</table>
+			
+			
+			
+			
+		</form>
+	</div>
+
+
+</body>
+</html>

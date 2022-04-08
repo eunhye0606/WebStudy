@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test032.html</title>
+<style type="text/css">
+	* {color: #223322; font-family: 맑은 고딕; font-weight: bold;}
+	.btn {font-size: 17px;}
+	.btn:hover {color: blue;}
+	.txt {width: 220px;}
+</style>
+<script type="text/javascript">
+	function searchAddr()
+	{
+		//alert("확인.");
+		
+		//BOM (브라우저 오브 모델) 의 기본 객체 : window
+		window.open("Test033.html","test", "width=500, height=300");
+		//           파일명       ,정체성, 속성
+	}
+</script>
+</head>
+<body>
+
+<div>
+	<h1>자바스크립트 활용</h1>
+	<hr>
+	
+	<h2>-주소 검색-</h2>
+	<form>
+		기본 주소
+		<input type= "text" id = "addr1" readonly="readonly"class = "txt">
+		<input type= "button" value = "검색" class="btn" onclick="searchAddr()">
+		<br><br>
+		
+		상세 주소
+		<input type= "text" id = "addr2" class ="txt">
+		<br><br>
+		
+		<span id = "txt1" style="color: red; font-weight: bold;">눈으로 확인할 수 있도록 처리</span>
+	</form>
+</div>
+
+</body>
+</html>
