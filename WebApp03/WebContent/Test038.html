@@ -15,7 +15,7 @@
 	{
 		this.userName = uName;
 		this.content = uContent;
-		this.writeDay = new Date();
+		this.writeDay = new Date(); //이게 몰까?
 	}
 	
 	// check!
@@ -41,8 +41,60 @@
 	// 글쓰기 버튼이 클릭되었을 때 호출되어 기능하는 함수
 	function protoTest()
 	{
+		//alert("함수 호출");
+		var uName = document.getElementById("uName").value;
+		var uContent = document.getElementById("uContent").value;
+		
+		//배열의 길이 선언 안한상태
+		// 배열의 길이를 먼저 정해준다.
+		var len = boardArray.length;
+		//alert(len);
+		//-- 현재 시점에서 테스트 시 → 0
+		
+		boardArray[len] = new Board(uName,uContent);
+		
+		//확인
+		//alert(len);
+		
+		//내용 출력 함수 호출
+		print(len);
+		
+		
+		
+		
 		
 	}
+	
+	// 내용 출력 함수 정의
+	function print(idx)
+	{
+		// 확인
+		var strTemp = boardArray[idx].content;
+		//alert(strTemp);
+		
+		var tableNode = document.getElementById("bbsTable");
+		var trNode = document.createElement("tr");
+		
+		trNode.appendChild(createTdNode((idx+1).toString())) //번호
+		trNode.appendChild(createTdNode(boardArray[idx].userName)) //이름
+		trNode.appendChild(createTdNode(boardArray[idx].content)) //내용
+		trNode.appendChild(createTdNode(boardArray[idx].userLocalString())) //작성일
+		
+		tableNode.appendChild(trNode);
+		
+		
+		
+	}
+	
+	// td 노드 생성 및 변환 함수 정의
+	function createTdNode(val)
+	{
+		var textNode = document.createTextNode(val);
+		var tdNode = document.createElement("td");
+		tdNode.appendChild(textNode);
+		return tdNode;
+	}
+	
 </script>
 </head>
 <body>
