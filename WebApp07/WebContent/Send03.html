@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send03.html</title>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+</head>
+<body>
+<!-- 
+	○ 데이터 송수신 실습 03
+	   - 두 개의 정수와 연산자를 입력받는 html 페이지를 구성한다.
+	   정수1      연산자       정수2
+	   
+	   사용자 초기 url
+	   http://localhost:8090/WebApp07/Send03.html
+	   
+	   Send03.html
+	   Receive03.jsp
+	   
+	   
+	   
+	   
+ -->
+ <div>
+ 	<h1>데이터 송수신 실습 03</h1>
+ 	<hr>
+ </div>
+ 
+<div>
+	<form action="Receive03.jsp" method="post">
+		<table>
+			<tr>
+				<th>정수1</th>
+				<th>연산자</th>
+				<th>정수2</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="txt" name="num1">
+				</td>
+				<td>
+					<select name ="op">
+						<option value="+">더하기</option>
+						<option value="-">빼기</option>
+						<option value="*">곱하기</option>
+						<option value="/">나누기</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" class="txt" name="num2">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: center;">
+					<input type="submit" class="btn" value="결과 확인"> 		
+ 					<input type="reset" class="btn" value="취소"> 	
+				</td>
+			</tr>
+		</table>
+	
+	</form> 
+</div>
+<!--  <div>
+ 	<form action="Receive03.jsp" method="get">
+ 		정수1 <input type="text" class="txt" name="su1">
+ 		
+ 		<select name="selectGroup">
+			<option value="더하기">더하기</option>
+			<option value="빼기">빼기</option>
+			<option value="곱하기">곱하기</option>
+			<option value="나누기">나누기</option>
+ 		</select>
+ 		
+ 		정수2 <input type="text" class="txt" name="su2">
+ 		<br>
+ 		<input type="submit" class="btn" value="결과 확인"> 		
+ 		<input type="reset" class="btn" value="취소"> 		
+ 	</form> 
+ 	
+ </div>-->
+</body>
+</html>
