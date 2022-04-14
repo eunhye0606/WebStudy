@@ -89,17 +89,162 @@
 	}
 	
 	
-	
 	//-------------------------------------------확인한 날짜로 년도 select option 구성
 	
 	
 	
 	//확인한 날짜로 월 select option 구성-------------------------------------------
+	//<option value ="1">1</option>
+	//<option value ="2">2</option>
+	//				:
+	//<option value ="4" selected="selected">4</option>
+	//              :
+	//<option value ="12">12</option>
+	
+	
+	
+	String mOptions ="";
+	for (int j=1; j<=12;j++)
+	{
+		if (j ==selectMonth)
+		{
+			mOptions += "<option value='"+   j+   "' selected='selected'>"   +j+    "</option>";
+		}
+		else
+						 
+			mOptions += "<option value ='"     +j+    "'>"      +j+     "</option>";
+	}
 	
 	//-------------------------------------------확인한 날짜로 월 select option 구성
 	
 	
-
+	// 달력 그리기 -----------------------------------------------------------------
+	// 그려야 할 달력의 1일이 무슨 요일인지 확인 필요.
+	// (만년달력)
+	
+	int [] months = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	
+	if (selectYear%4==0 && selectYear%100!=0 || selectYear%400==0)
+	{
+		//윤년
+		months[1] = 29;
+	}
+	
+	// 총 날 수 누적 변수
+	int nalsu;
+	
+	// 요일 항목 배열 구성
+	String [] weekNames = {"일요일","월요일","화요일","수요일","목요일","금요일","토요일"};
+	
+	// 현재 년도 ~ 입력 받은 년도 이전 년도까지의 날 수 계산
+	nalsu = (selectYear-1)*365 + (selectYear-1)/4 -(selectYear-1)/100 + (selectYear-1)/400;
+	
+	// 현재 월 → 입력 받은 월의 이전 월까지의 날 수 추가.
+	// ex) 입력 받은 월 : 5월 (4월까지 날 수 추가.)
+	//              months[4]  months[3]     
+	for (int i=0;i<selectMonth-1; i++)
+	{
+		nalsu += months[i];
+	}
+	
+	// +1일 해주기. 5월1일부터 달력 시작이라.
+	nalsu++; 
+	
+	// 요일 변수
+	int week = nalsu%7;
+	// 마지막 날짜 변수
+	int lastDay = months[selectMonth-1];
+	
+	
+	
+	// 달력 그리기 
+	String calStr ="";
+	calStr += "<table border='1'>";
+	
+	
+	// 요일 이름 발생
+	calStr += "<tr>";
+	for (int i=0;i<weekNames.length;i++)
+	{
+		if (i==0)										//--일요일
+			calStr += "<th style='color:red;'>" + weekNames[i] + "</th>";
+		else if (i==6)									//--토요일
+			calStr += "<th style='color:blue;' >" + weekNames[i] + "</th>";
+		else											//--평일
+			calStr += "<th style='color:black;'>" + weekNames[i] + "</th>";		
+		
+	}
+	calStr +="</tr>";
+	
+	// 빈 칸 공백 td 발생
+	calStr +="<tr>";
+	for(int i=1; i<=week; i++)
+	{
+		calStr += "<td></td>";
+	}
+	
+	// 날짜 td 발생
+	for(int i=1; i<=lastDay; i++)
+	{
+		week++;						//-- 날짜가 하루씩 찍힐 때 마다 (구성이 이루어 질 때 마다) 요일도 함께 1씩 증가.
+		
+		//calStr += "<td>" + i + "</td>";
+		
+		
+		//오늘이 토요일/일요일/평일일 때,
+		if (selectYear==nowYear && selectMonth==nowMonth && i==nowDay && week%7==0) 	//--토요일인 오늘
+		{
+			calStr += "<td class='nowSat'>" + i + "</td>";
+		}
+		else if(selectYear==nowYear && selectMonth==nowMonth && i==nowDay && week%7==1) //-- 일요일인 오늘
+		{
+			calStr += "<td class='nowSun'>" + i + "</td>";
+		}
+		else if (selectYear==nowYear && selectMonth==nowMonth && i==nowDay) 			//-- 평일인 오늘
+		{
+			calStr += "<td class='now'>" + i + "</td>";
+		}
+		//최초요청 이후, 오늘을 모를 때
+		else if(week%7==0)	//--토요일
+		{
+			calStr += "<td class='sat'>" + i + "</td>";
+		}
+		else if(week%7==1)	//--일요일
+		{
+			calStr += "<td class='sun'>" + i + "</td>";
+		}
+		else
+			calStr += "<td>" + i + "</td>";
+		
+		
+		
+		
+		
+		if(week % 7 == 0)
+			calStr +="</tr><tr>";
+	}
+	
+	// 빈 칸 공백 td 발생
+	for (int i=0;i<=week;i++,week++)
+	{
+		if (week%7==0)
+		{
+			break;
+		}
+		calStr += "<td></td>";
+	}
+	
+	
+	
+	
+	
+	if (week%7 !=0)
+		calStr += "</tr>";
+	
+	
+	calStr += "</table>";
+	// ----------------------------------------------------------------- 달력 그리기
+	
 %>
 
 <!DOCTYPE html>
@@ -107,7 +252,15 @@
 <head>
 <meta charset="UTF-8">
 <title>SendAndReceive07.jsp</title>
-<link rel="stylesheet" type="text/css" href="css/Main.css">
+
+<style type="text/css">
+	td {text-align: right;}
+	td.now {background-color: pink; font-weight: bold;}
+	td.sat {color: blue;}
+	td.sun {color: red;}
+	td.nowSat {background-color: pink; font-weight: bold; color: blue;}
+	td.nowSun {background-color: pink; font-weight: bold; color: red;}
+</style>
 <script type="text/javascript">
 	function formCalendar(obj)
 	{
@@ -148,7 +301,7 @@
 	     해당 연 월의 달력을 출력해주는 형태의 페이지로 구성한다.
 	   
 	   - 사용자 최초 요청 주소는
-	     http://localhost:8090/WebApp07/SendAndReceive07.jsp 로 한다.
+	     http://localhost:8090/WebApp07/SendAndReceive07_1.jsp 로 한다.
 	  
 	 ○ SendAndReceive07.jsp
 	   
@@ -182,15 +335,15 @@
 		</select>
 		년
 		<select id="month" name="month" onchange="formCalendar(this.form)">
-			<option value="99">99</option>
-			<option value="99">98</option>
+			<%=mOptions %>
 		</select>
 		월
 	</form>
 </div>
-
+<br>
 <div>
-<!-- 달력을 그리게 될 지점 -->
+	<!-- 달력을 그리게 될 지점 -->
+	<%=calStr %>
 </div>
 
 
