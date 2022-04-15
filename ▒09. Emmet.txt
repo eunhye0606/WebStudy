@@ -1,0 +1,49 @@
+■■■ Emmet(에밋) ■■■
+
+○ 개요
+
+   - 기존에는 Zen Coding(젠코딩) 이라는 이름으로 사용되었다.
+   - 이후... Google 에서 이 도구를 수용하면서 emmet 이라는 이름으로 변경되었다.
+   - HTML 생산성 향상 도구 (HTML 코딩을 빠르게 하기 위한 플러그인)
+   - CSS 선택자 사용(CSS3 지원)
+     → HTML을 CSS 선택자를 통해 검색하는 방법 대신
+        CSS 선택자를 통해 HTML을 생성하도록 하는 개념.
+
+○ 환경 설정
+
+   - 대부분의 툴에서 지원하고 있음
+     (※ 그리고 대부분의 편집기 내에서의 액션 키 : Ctrl + E)
+
+   - 『http://emmet.io』
+     ① 메인 페이지 좌측에 있는 DOWNLOAD 버튼 클릭
+        → 『https://emmet.io/download/』 페이지로 이동
+     ② DOWNLOAD 리스트들 중 『Eclipse/Aptana』메뉴 클릭
+        → 『https://github.com/emmetio/emmet-eclipse#readme』 페이지로 이동
+     ③ 『Installation』 항목대로 진행
+	 1. Go to Help > Install New Software… in your Eclipse IDE
+	 2. Add http://download.emmet.io/eclipse/updates/ in update sites
+	 3. Check Emmet for Eclipse group in available plugins list, click Next button and follow the installation instructions
+   	    (진행 중에 경고 대화창 → Install anyway)
+	 4. Software Updates 대화창
+	    - Restart Eclipse IDE to apply the software update?
+ 	    → Restart Now 버튼 클릭 → 이클립스 재시작
+     ④ Emmet 플러그인이 제대로 설치되고 이클립스가 정상적으로 재구동 되었다면...
+        이클립스의 기본 메뉴에 Emmet 항목이 추가되었음을 확인할 수 있음.
+        (※ 단, emmet 에 익숙해지는 동안 이 메뉴를 사용할 일은 특별히 없음)
+     -----------------------------
+	여기까지면 emmet 사용 환경 설치 완료.
+
+※ 특이사항
+   Emmet 플러그인 설치 이후 이클립스 기본 단축키와 기능이 중복되는 항목이 존재함.
+                            --------------------
+                                  Ctrl + D
+   ==> 단축키 재설정
+       (원래 emmet이 가진 Ctrl+D는 안쓰임.)
+  
+
+실무에서
+플러그인들 아무거나 설치하면 xx
+한글화, 바벨, 이클립스에서 부족한 것들이 플러그인 형태로 배포많이 하는 중..
+이것 저것 깔면,,,, 실무환경에서는 플러그인 설치 못하는 환경이 많기에 큰일남.
+에밋은 보안 이슈 전혀 xx 그래서 이건 가능!!
+
