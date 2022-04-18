@@ -49,13 +49,37 @@
 <title>Test002.jsp</title>
 <link rel="stylesheet" href="css/Main.css" type="text/css" >
 <style type="text/css">
+	* {color: black;}
 	input {width: 200px;}
 	button {width: 200px;}
-	.errMsg{font-size: 20px; height: 50px; font-weight: bold;display: none;}
+	.errMsg{font-size: 20px; height: 50px; font-weight: bold;display: none; color: red;}
 	#numTitle {width: 50px;}
 	#nameTitle {width: 100px;}
-	#telTitle {width: 100px;}
+	#telTitle {width: 160px;}
+		
 </style>
+<script type="text/javascript">
+	// 필수 입력 항목(이름)에 대한 기본적인 확인
+	function formCheck()
+	{
+		//alert("함수호출");
+		
+		var uName = document.getElementById("userName");
+		var nErr = document.getElementById("nameErr");
+		
+		nErr.style.display = "none";
+		
+		if (uName.value =="")
+		{
+			nErr.style.display = "inline";
+			return false;
+		}
+		return true;
+	}
+
+</script>
+
+
 </head>
 <body>
 <div>
@@ -64,7 +88,7 @@
 </div>
 <div>
 	<!-- 데이터 입력 -->
-	<form>
+	<form action="MemberInsert.jsp" method="post" onsubmit="return formCheck()">
 		<table>
 			<tr>
 				<th>이름(*)</th>
