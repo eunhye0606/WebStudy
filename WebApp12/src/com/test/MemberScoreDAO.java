@@ -46,7 +46,7 @@ public class MemberScoreDAO
 	}//end add(MemberScoreDTO score)
 	
 	
-	//♥ 성적 전체 리스트 출력 담당 메소드
+	// ♥성적 전체 리스트 출력 담당 메소드
 	//   반환 자료형 : MemberScoreDTO 들을 담은 자료구조형
 	public ArrayList<MemberScoreDTO> lists() throws SQLException
 	{
@@ -90,11 +90,29 @@ public class MemberScoreDAO
 	
 	
 	
-	// 데이터베이스 연결 종료(해제) 담당 메소드
+	// ♥데이터베이스 연결 종료(해제) 담당 메소드
 	public void close() throws SQLException
 	{
 		DBConn.close();
+	}//end close()
+	
+	
+	// ♥성적 삭제 메소드
+	public int delete(String sid) throws SQLException
+	{
+		int result = 0;
+		String sql = "DELETE FROM TBL_MEMBERSCORE WHERE SID=?";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,sid);
+		
+		result = pstmt.executeUpdate();
+		
+		
+		return result;
 	}
+	
+	//
 
 
 }

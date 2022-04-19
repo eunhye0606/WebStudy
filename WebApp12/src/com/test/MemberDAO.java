@@ -143,9 +143,36 @@ public class MemberDAO
 	}//end select(String sid)
 	
 	
+	// 메소드 추가(수업)
+	// 번호 검색 담당 메소드(번호를 통해 회원 데이터 조회)
+	// -- 현재... 번호(sid)는 TBL_MEMBER 테이블에서 식별자의 역할을 수행하고 있으며
+	//    번호를 통한 검색 결과는 한 명의 회원일 수 밖에 없기 때문에
+	//    반환 자료형은 MemberDTO 형태로 구성한다.
+	public MemberDTO searchMember(String sid) throws SQLException
+	{
+		MemberDTO result = new MemberDTO();
+		
+		String sql = "SELECT SID,NAME,TEL FROM TBL_MEMBER WHERE SID = ?";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,sid);
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next())
+		{
+			result.setSid(rs.getString("SID"));
+			result.setName(rs.getString("NAME"));
+			result.setTel(rs.getString("TEL"));
+		}
+		rs.close();
+		pstmt.close();
+		
+		return result;
+	}//end searchMember(String sid)
+	
 	
 	// ★회원 정보 수정 메소드 정의
-	public int update(MemberDTO member) throws SQLException
+	public int modify(MemberDTO member) throws SQLException
 	{
 		int result = 0;
 		String sql = "UPDATE TBL_MEMBER SET NAME=?, TEL=? WHERE SID=?";
@@ -160,21 +187,44 @@ public class MemberDAO
 		pstmt.close();
 		return result;
 			
-	}//end update(MemberDTO member)
+	}//end modify(MemberDTO member)
 		
 	
 	
 	// ★회원 정보 삭제 메소드
-	public int delete(String sid)
+	public int remove(String sid) throws SQLException
 	{
 		int result = 0;
-		string = sql
+		String sql = "DELETE FROM TBL_MEMBER WHERE SID=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1,sid);
+		
+		result = pstmt.executeUpdate();
+		
+		pstmt.close();
+		
+		return result;
+	}//end remove(String sid)
+	
+	// ★참조 확인 메소드 
+	//   자식 테이블의 참조 데이터 레코드 수 확인
+	public int refCount(String sid) throws SQLException
+	{
+		int result = 0;
+		String sql="SELECT COUNT(*) AS COUNT FROM TBL_MEMBERSCORE WHERE SID=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,sid);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next())	//if(rs.next())
+		{
+			result = rs.getInt("COUNT");
+		}
+		rs.close();
+		pstmt.close();
 		
 		return result;
 	}
-	
-	// ★참조 확인 메소드 
-	
 	
 	
 	
