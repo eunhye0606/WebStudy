@@ -54,7 +54,7 @@ public class MemberScoreDAO
 		
 		String sql = "SELECT SID,NAME,KOR,ENG,MAT"
 				+ " ,(KOR+ENG+MAT) AS TOT"
-				+ " ,((KOR+ENG+MAT)/3) AS AVG"
+				+ " ,ROUND(((KOR+ENG+MAT)/3),2) AS AVG"
 				+ " ,RANK() OVER(ORDER BY (KOR+ENG+MAT) DESC) AS RANK"
 				+ " FROM VIEW_MEMBERSCORE"
 				+ " ORDER BY SID";
@@ -98,7 +98,7 @@ public class MemberScoreDAO
 	
 	
 	// ♥성적 삭제 메소드
-	public int delete(String sid) throws SQLException
+	public int remove(String sid) throws SQLException
 	{
 		int result = 0;
 		String sql = "DELETE FROM TBL_MEMBERSCORE WHERE SID=?";
@@ -108,11 +108,61 @@ public class MemberScoreDAO
 		
 		result = pstmt.executeUpdate();
 		
+		pstmt.close();
 		
 		return result;
 	}
 	
-	//
+	// ♥번호로 조회 메소드
+	public MemberScoreDTO searchSid(String sid) throws SQLException
+	{
+		MemberScoreDTO result = new MemberScoreDTO();
+		String sql = "SELECT SID,NAME,KOR,ENG,MAT FROM VIEW_MEMBERSCORE WHERE SID=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, sid);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next())
+		{
+			result.setSid(rs.getString("SID"));
+			result.setName(rs.getString("NAME"));
+			result.setKor(rs.getInt("KOR"));
+			result.setEng(rs.getInt("ENG"));
+			result.setMat(rs.getInt("MAT"));
+		}
+		rs.close();
+		pstmt.close();
+		
+		return result;
+	}
 
-
+	// ♥ 입력된 성적 데이터 레코드 수
+	public int count() throws SQLException
+	{
+		int result= 0;
+		String sql = "SELECT COUNT(*) AS COUNT FROM TBL_MEMBERSCORE";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next())
+		{
+			result = rs.getInt("COUNT");
+		}
+		
+		return result;
+	}
+	
+	// ♥ 성적 수정 메소드
+	public int modify(MemberScoreDTO dto) throws SQLException
+	{
+		int result = 0;
+		String sql ="UPDATE TBL_MEMBERSCORE SET KOR=?, ENG=?, MAT=? WHERE SID=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, dto.getKor());
+		pstmt.setInt(2, dto.getEng());
+		pstmt.setInt(3, dto.getMat());
+		pstmt.setString(4, dto.getSid());
+		
+		result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
+	}
 }

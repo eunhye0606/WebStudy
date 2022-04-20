@@ -1,0 +1,34 @@
+●●● window ●●●
+
+1. BOM(브라우저 오브 모델)의 기본 객체 : window
+   
+   WebApp03/WebContent/Test032.html
+   window.open("Test033.html,'test','width=500, height=300");
+                ------------- ----   ----------------------
+                   파일명    정체성     속성
+   window.opener.document : 해당 문서를 연 (opener)한 문서
+
+
+2. 자바스크립트 내에서 문서가 로딩되는 시점에서 함수 호출할 때.
+<script type="text/javascript">
+
+	/* 이벤트 등록 방법 ② */
+	//문서가 로드될 때, 함수를 호출하겠다.
+	//① : body 태그가 읽어질 때
+	//② : 문서가 로딩되는 시점.
+	document.onload = windowOnload();
+
+
+	function windowOnload()
+	{
+		alert("경고창 ~ !!!");
+	}
+
+</script>
+
+
+3. window.location.href / window.location.replace()
+   새로운 페이지로 이동   기존페이지 → 새로운 페이지
+   이전 페이지 기록 o     이전 페이지 기록 x
+   (뒤로 가기 가능)       (뒤로 가기 불가능)
+         속성			메소드

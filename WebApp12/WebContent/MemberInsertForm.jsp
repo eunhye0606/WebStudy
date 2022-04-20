@@ -14,15 +14,25 @@
 		var memberForm = document.getElementById("memberForm");
 		var uName = document.getElementById("uName");
 		var nameMsg = document.getElementById("nameMsg");
+		var uTel = document.getElementById("uTel");
+		var telMsg = document.getElementById("telMsg");
 		
 		//이거 하는 이유. 초기화하려고
 		nameMsg.style.display = "none";
+		telMsg.style.display="none";
+		
 		if (uName.value =="")
 		{
 			nameMsg.style.display = "inline";
 			uName.focus();
 			// 함수 끝내기.
 			// submit 안해야 해서!
+			return;
+		}
+		else if (uTel.value =="")
+		{
+			telMsg.style.display="inline";
+			uTel.focus();
 			return;
 		}
 		
@@ -68,7 +78,7 @@
 			<tr>
 				<th>전화번호</th>
 				<td><input type="text" id="uTel" name="uTel" /></td>
-				<td></td>
+				<td><span class="errMsg" id="telMsg">전화번호를 입력해야 합니다.</span></td>
 			</tr>
 		</table>
 		<br />
