@@ -1,0 +1,32 @@
+■■■ JDBC 연동 게시판 작성 실습 ■■■
+
+○ 프로젝트 : WebApp20
+
+○ 물리적 구성 요소
+
+   00. WebApp20_scott.sql
+   
+   01. DBConn.java
+   02. BoardDTO.java
+   03. BOardDAO.java
+   04. MyUtil.java (페이징 처리와 관련된 처리 구성)
+   
+   05. List.jsp
+   06. Created.jsp
+   07. Created_ok.jsp
+   08. Article.jsp (상세내용)
+   09. Updated.jsp (수정)
+   10. Updated_ok.jsp (수정 액션)
+   11. Delete.jsp
+   
+   ※ 목표
+   페이지 요청 및 실행 흐름 파악하기
+   페이징 처리(MyUtil.jsp) → 조금 까다로워용
+   							  기법들이 매우 다양, 복잡해용
+   							  여기서는 가장 직관적이고 쉬운 방법 쓸거양.
+   							  여기서 이해하면 다른 방법으로 페이징 처리할 수 없을까?
+   							  하는건 다른 구문 보면서 이해할 수 있는 상태가 되어야합니당.
+   							  
+   
+   
+   
