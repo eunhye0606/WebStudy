@@ -3,6 +3,7 @@
  	- 데이터베이스 연결 전용 객체(Singleton)
  	- 예외 처리 : throws
 ============================================*/
+
 package com.util;
 
 import java.sql.Connection;
@@ -17,6 +18,7 @@ public class DBConn
 	{
 		if (dbconn == null)
 		{
+											//------- 여기 학원 IP로
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String user = "scott";
 			String pwd = "tiger";

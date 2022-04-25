@@ -8,7 +8,7 @@
    
    01. DBConn.java
    02. BoardDTO.java
-   03. BOardDAO.java
+   03. BoardDAO.java
    04. MyUtil.java (페이징 처리와 관련된 처리 구성)
    
    05. List.jsp
