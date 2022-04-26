@@ -166,9 +166,14 @@ public class MyUtil
 		
 		// Next(다음으로)
 		n = currentPage + numPerBlock;
+		//n = 36  +   10 								→ n = 46
 		if ((totalPage-currentPageSetup)>numPerBlock)
+			// 45	-    30				>10			    → true
 		{
 			strList.append(" <a href='"+listUrl + "pageNum="+n+">Next</a>");
+			//             <a href="+listUrl"+pageNum=46>Next</a>");
+			//				어 그러네 조건이 없네여 46p 없으니까
+			//  			totalPage < n 일 때를 고려해야하는데.. 
 		}
 		
 		
