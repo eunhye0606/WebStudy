@@ -19,7 +19,7 @@ public class DBConn
 		if (dbconn == null)
 		{
 											//------- 여기 학원 IP로
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@211.238.142.168:1521:xe";
 			String user = "scott";
 			String pwd = "tiger";
 			

@@ -104,7 +104,7 @@ public class MyUtil
 		//   그러면... currentPageSetup 은 10이 되는 것이다.
 		
 		// 10의 배수일 때,, 요상함.
-		if (currentPageSetup % numPerBlock == 0)
+		if (currentPage % numPerBlock == 0)
 		{
 			currentPageSetup = currentPageSetup - numPerBlock;
 			// currentPageSetup -= numPerBlock;
@@ -127,9 +127,15 @@ public class MyUtil
 		
 		// Prev(이전으로)
 		n = currentPage - numPerBlock;
+		//   9 - 10 
 		//-- n : 해당 페이지만큼 앞으로 가기 위한 변수
 		
+		
+		//  전체페이지수 > 10 	        현재페이지셋업 > 0
+		//  7            <  10
+		//  20           > 10            0 ~ 10 은 안만들고 // 11  ~ 20 만들어야지 이거 나누려고 
 		if ((totalPage>numPerBlock) && (currentPageSetup>0))
+		//   30       > 10              현재 페이지 23p → 20    n → 23-10 = 13       
 		{
 			strList.append(" <a href='"+ listUrl +"pageNum="+ n +"'></a>");
 		}//-- currentPageSetup 이 0 보다 큰 경우는
@@ -167,6 +173,9 @@ public class MyUtil
 		// Next(다음으로)
 		n = currentPage + numPerBlock;
 		//n = 36  +   10 								→ n = 46
+		//   36    + 10 
+		//   46			31 32 33 34 ... 
+		//   45          30        15 > 10 
 		if ((totalPage-currentPageSetup)>numPerBlock)
 			// 45	-    30				>10			    → true
 		{
@@ -174,6 +183,7 @@ public class MyUtil
 			//             <a href="+listUrl"+pageNum=46>Next</a>");
 			//				어 그러네 조건이 없네여 46p 없으니까
 			//  			totalPage < n 일 때를 고려해야하는데.. 
+			strList.append(" <a href='"+listUrl + "pageNum="+n+"'>Next</a>");
 		}
 		
 		
