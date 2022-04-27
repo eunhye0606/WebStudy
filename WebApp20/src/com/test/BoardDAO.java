@@ -95,6 +95,7 @@ public class BoardDAO
 	//DB 레코드의 갯수를 가져오는 메소드 정의(지금은 전체 레코드 수)
 	//→ 검색 기능을 작업하게 되면... 수정하게 될 메소드(검색 대상이 몇개인지)
 	//페이징 처리 때문에 하는 일
+	
 	/*
 	public int getDataCount()
 	{
@@ -335,7 +336,7 @@ public class BoardDAO
 				result.setContent(rs.getString("CONTENT"));
 				result.setIpAddr(rs.getString("IPADDR"));
 				result.setHitCount(rs.getInt("HITCOUNT"));
-				result.setCreated(rs.getString("COUNTED"));
+				result.setCreated(rs.getString("CREATED"));
 			}
 			rs.close();
 			pstmt.close();
@@ -420,6 +421,7 @@ public class BoardDAO
 		int result = 0;
 		String sql  ="";
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		try
 		{
@@ -427,7 +429,9 @@ public class BoardDAO
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
-			result = pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				result = rs.getInt("BEFORENUM");
 			
 			pstmt.close();
 					
@@ -447,13 +451,15 @@ public class BoardDAO
 		int result = 0;
 		String sql = "";
 		PreparedStatement pstmt = null;
-		
+		ResultSet rs = null;
 		try
 		{
 			sql = "SELECT NVL(MIN(NUM),-1) AS NEXTNUM FROM TBL_BOARD WHERE NUM > ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			result = pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				result = rs.getInt("NEXTNUM");
 			
 			pstmt.close();
 		} 

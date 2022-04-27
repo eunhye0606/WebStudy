@@ -137,7 +137,7 @@ public class MyUtil
 		if ((totalPage>numPerBlock) && (currentPageSetup>0))
 		//   30       > 10              현재 페이지 23p → 20    n → 23-10 = 13       
 		{
-			strList.append(" <a href='"+ listUrl +"pageNum="+ n +"'></a>");
+			strList.append(" <a href='"+ listUrl +"pageNum="+ n +"'>Prev</a>");
 		}//-- currentPageSetup 이 0 보다 큰 경우는
 		//    이미 페이지가 11 이상이라는 의미이며
 		//    이 때, 현재 페이지가(currentPage)가 11 이상일 경우
@@ -179,11 +179,11 @@ public class MyUtil
 		if ((totalPage-currentPageSetup)>numPerBlock)
 			// 45	-    30				>10			    → true
 		{
-			strList.append(" <a href='"+listUrl + "pageNum="+n+">Next</a>");
+			strList.append(" <a href='"+listUrl + "pageNum="+n+"'>Next</a>");
 			//             <a href="+listUrl"+pageNum=46>Next</a>");
 			//				어 그러네 조건이 없네여 46p 없으니까
 			//  			totalPage < n 일 때를 고려해야하는데.. 
-			strList.append(" <a href='"+listUrl + "pageNum="+n+"'>Next</a>");
+			//strList.append(" <a href='"+listUrl + "pageNum="+n+"'>Next</a>");
 		}
 		
 		
