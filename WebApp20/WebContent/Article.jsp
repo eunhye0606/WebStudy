@@ -1,3 +1,4 @@
+<%@page import="com.util.MyUtil"%>
 <%@page import="com.test.BoardDTO"%>
 <%@page import="com.util.DBConn"%>
 <%@page import="java.sql.Connection"%>
@@ -45,6 +46,7 @@
 	
 
 %>
+
 
 
 <!DOCTYPE html>
@@ -163,8 +165,10 @@
 	<div id="bbsArticle_footer">
 	
 		<div id="leftFooter">
-			<input type="button" value="수정" class="btn2" />
-			<input type="button" value="삭제" class="btn2"/>
+			<input type="button" value="수정" class="btn2" 
+			onclick="javacript:location.href='<%=cp%>/Updated.jsp?num=<%=dto.getNum()%>&pageNum=<%=pageNum%>&status=1'"/>
+			<input type="button" value="삭제" class="btn2"
+			onclick="javacript:location.href='<%=cp%>/Updated.jsp?num=<%=dto.getNum()%>&pageNum=<%=pageNum%>&status=2'"/>
 		</div><!-- close #leftFooter -->
 		
 		<div id="rightFooter">

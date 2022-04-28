@@ -137,9 +137,21 @@
 		f.submit();
 		
 	}
+	
+	
 </script>
 </head>
 <body>
+<div>
+	
+	<h1 style="color: red; font-size: 100px; text-align: center;" id="eh">착하게 살자!</h1>
+	<br />
+	<h1 style=" font-size: 11px; text-align: center;">※ 도배하면 쌤 게시판에 최문정이름으로 글올린다.</h1>
+	<h1 style="color: pink; font-size: 11px; text-align: center;">
+		<a href="http://211.238.142.152:8090/WebApp20/List.jsp" style="color: pink">한충희월드로 이동</a>
+	</h1><br />
+	
+</div>
 
 <%--
 <div>
