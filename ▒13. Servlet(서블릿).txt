@@ -61,7 +61,17 @@ web.xml에 어떤 요청이 들어왔을 때, 분기 처리 방식 어떻게 처
      http://localhost:8090/WebApp21/test1
 
 
+------------------------------------------------------------------------------------------------------------------------
 
+○ Servlet 실습 (WebApp21)
+
+   - Test2.jsp
+   - Test2.java
+   - Test2_result.jsp
+   - web.xml
+
+   - 사용자 최초 요청 페이지
+     http://localhost:8090/WebApp21/test2.jsp
 
 
 
