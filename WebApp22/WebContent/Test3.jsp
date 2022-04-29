@@ -79,7 +79,7 @@
 	<h3><%=request.getAttribute("result") %></h3>
 	
 	<!--  setAttribute() 로 넘긴 데이터를 수신하는 방법 2 -->
-	<sapn>param<br></sapn>
+	<span>param<br></span>
 	<h3>${result }</h3>
 </div>
 
