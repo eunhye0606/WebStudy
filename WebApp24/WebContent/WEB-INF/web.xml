@@ -25,5 +25,18 @@
 		<url-pattern></url-pattern>
 	</servlet-mapping>
 	-->
+	
+	
+	<!-- MVCBegin -->
+	<servlet>
+		<servlet-name>MVCBegin</servlet-name>
+		<servlet-class>com.svt.MVCBegin</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MVCBegin</servlet-name>
+		<url-pattern>/mvcbegin</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>
