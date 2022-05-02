@@ -1,15 +1,24 @@
+/* ===================
+ 	 MemberDTO.java
+=================== */
 package com.test;
 
 public class MemberDTO
 {
 	private String name, tel, addr;
 	
-	/*public MemberDto(name, tel, addr)
+	
+	//디폴트생성자도 해줘야 한다.
+	public MemberDTO()
+	{
+	}
+	
+	public MemberDTO(String name, String tel, String addr)
 	{
 		this.name = name;
 		this.tel = tel;
 		this.addr = addr;
-	}*/
+	}
 	
 
 	public String getName()

@@ -15,6 +15,7 @@
 
 <div>
 	<h1>JSTL 코어(Core) set문 실습</h1>
+	<h2>지수 승 구하기</h2>
 	<hr />
 </div>
 
@@ -29,7 +30,7 @@
 
 <div>
 	<form method="post">
-		정수1 <input type="text" class="txt" name="su1" />
+		정수1 <input type="text" class="txt" name="su1" /><br />
 		정수2 <input type="text" class="txt" name="su2" />
 		
 		<button type="submit" class="btn">결과 확인</button>
@@ -40,15 +41,15 @@
 	<!-- request.getParameter("su1")로 수행한 결과값이 존재할 경우 다음과 같이 처리 -->
 	<c:if test="${!empty param.su1 }">
 	
-		
-		<%-- 『<c:set var="변수" value="값"></c:set>』 --%>
+		<%--<c:set var="변수" value="값"></c:set>--%>
 		<%--  → 변수의 값을 지정하는 구문 --%>
 		<%--  → 해당 스코프에 지정된 변수가 존재하지 않을 경우 --%>
 		<%--     변수를 새로 선언하여 초기화 하는 기능을 수행하게 되며 --%>
 		<%--     그 변수의 값을 다시 초기화하는 효과가 적용된다.--%>
+		<c:set var="result" value="10"></c:set>
 		<c:set var="result" value="1"></c:set>
 		
-		<c:forEach var="a" begin="1"end="${param.su2 }"step="1">
+		<c:forEach var="a" begin="1" end="${param.su2 }" step="1">
 			<c:set var="result" value="${result * param.su1 }"></c:set>
 			<p>${param.su1 } ^ ${a } = ${result }</p>
 		</c:forEach>
