@@ -158,15 +158,71 @@ webcontent > New > file > 저 주소이름으로 예를 들면 (mvcbegin)을 만
 하는 이유 : 주소를 한땀 한땀 치는거 귀찮아서.
 
 
+○ MVC 관련 실습 2
+- prj : WebApp25
+  
+  ·web.xml		→ URL 매핑
+  ·MVCTest01.java 	→ Controller 역할 (서블릿 클래스)
+  ·MVCTest01.jsp	→ View 역할 (JSP 페이지)
+
+- 사용자 최초 요청 주소
+http://localhost:8090/WebApp25/mvctest01
+                               --------
+                               컨트롤러
+
+○ MVC 관련 실습 3
+- prj : WebApp25
+  
+  ·web.xml		→ URL 매핑
+  ·MVCTest02.java 	→ Controller 역할 (서블릿 클래스)
+  ·MVCTest02.jsp	→ View 역할 (JSP 페이지)
+  ·MVCTest02Model.jsp	→ Model 역할 (일반 자바 클래스)
+
+- 사용자 최초 요청 주소
+http://localhost:8090/WebApp25/mvctest02
 
 
 
 
+------------------------------------------------------
+○ 폼(form) 데이터 전송 및 수신 과정 비교
 
+   ※ MVC 패턴 적용 이전 단계와 MVC 패턴 적용 이후 단계를
+      반드시 비교하여 이해할 수 있도록 할 것.
 
+   - A
+     · prj : WebApp26
 
+     · HelloSend01.html
+     · HelloReceive01.jsp
 
+     · 사용자 최초 요청 주소
+     · http://location:8090/WebApp26/HelloSend01.html
 
+   - B
+     · prj : WebApp27
+
+     · HelloSend02.html
+     · HelloReceive02.java
+     · web.xml
+
+     · 사용자 최초 요청 주소
+     · http://location:8090/WebApp27/HelloSend02.html
+
+   - C
+     · prj : WebApp28
+
+     · HelloSend03.html
+     · HelloSend03Controller.html
+     · HelloReceive03Controller.java
+     · HelloReceive03Model.java
+     · HelloReceive03.jsp
+     · web.xml
+
+     · 사용자 최초 요청 주소
+     · http://location:8090/WebApp28/hello
+
+     
 
 
 
