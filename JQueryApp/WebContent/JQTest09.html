@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest09.html</title>
+<style type="text/css">
+	img 
+	{
+		width: 50%;
+	}
+	ul
+	{
+		list-style: none;
+	}
+</style>
+<!-- 다른 사람 js 가져올 때 제이쿼리 먼저!!!  -->
+<!-- 그 js가 css도 필요하면 걔도 꼭 가져와야함 -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.innerfade.js"></script>
+<script type="text/javascript">
+	//가져온걸 실제로 적용할 때 필요한 코드
+	$(document).ready(function()
+	{
+		// jquery.innerfade.js
+		$("#innerFade").innerfade(
+		{
+			animationtype: 'slide'	//Type of animation 'fade' or 'slide' (Default: 'fade')
+			, speed: 'normal'		//Fading-/Sliding-Speed in milliseconds or keywords (slow, normal or fast) (Default: 'normal')			
+			, timeout: '2000'		//Time between the fades in milliseconds (Default: '2000')
+			, type: 'sequence'		//Type of slideshow: 'sequence', 'random' or 'random_start' (Default: 'sequence')
+		});
+	});
+	
+</script>
+
+</head>
+<body>
+
+
+<ul id="innerFade">
+	<li>
+		<img alt="" src="images/obj01.jpg">
+	</li>
+	<li>
+		<img alt="" src="images/obj02.jpg">
+	</li>
+	<li>
+		<img alt="" src="images/obj03.jpg">
+	</li>
+	<li>
+		<img alt="" src="images/obj04.jpg">
+	</li>
+	<li>
+		<img alt="" src="images/obj05.jpg">
+	</li>
+</ul>
+</body>
+</html>

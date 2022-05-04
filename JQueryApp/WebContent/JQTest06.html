@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest06.html</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		// 초기 게시물 구성 → 스크롤 생성-----------------------------
+		
+		// 문서의 높이.(윈도우의 높이랑은 다름. 윈도우 == 브라우저)
+		var docHeight = $(document).height();
+		
+		// 테스트
+		//alert(docHeight);
+		
+		
+		var scrollHeight = $(window).scrollTop() + $(window).height();
+		// 테스트
+		//alert(scrollHeight);
+		//--==>> 브라우저의 크기(창의 크기)를 달리하면 scrollHeight의 높이가 달라진다.
+		
+		for(var i=0; i<30; i++)
+		{
+			$("<h3>기존의 읽어온 게시물 " 
+					+ $(document).height() + " / "
+					+ $(window).scrollTop() + " / "
+					+ $(window).height()
+					+ "</h3>").appendTo("body");
+			//--==>> 안에 높이가 계속 길어진다.
+			//--==>> 브라우저의 높이는 유지되는데 문서의 높이는 스크롤내리면 브라우저 높이보다 커진다. top은 그대로
+		}
+		
+		// ----------------------------- 초기 게시물 구성 → 스크롤 생성
+		
+		
+		 $(window).scroll(function()
+     	 {
+         var docHeight = $(document).height();
+         var scrollHeight = $(window).scrollTop() + $(window).height();
+         
+         // 스크롤이 바닥으로 내려졌을 때...
+         // 태그 10개 추가하여 body에 붙이기
+         if (docHeight == scrollHeight)
+         {
+            for (var i=0; i<10; i++)
+            {
+               $("<h3>추가로 읽어온 게시물" 
+                     + $(document).height() + "/"
+                     + $(window).scrollTop() + "/"
+                     + $(window).height()
+                     + "</h3>").appendTo("body");
+            }
+         }
+
+		
+		
+		/* $(window).scroll(function()
+		{
+			var docHeight = $(document).height();
+			var scrollHeight = $(window).scrollTop() + $(window).height();
+			
+			// 스크롤이 바닥으로 내려졌을 때...
+			// 태그 10개를 추가하여 body에 붙이기
+			if (docHeight == scollHeight)
+			{
+				for (var i=0; i<10; i++)
+				{
+					$("<h3>추가로 읽어온 게시물 " 
+							+ $(document).height() + " / "
+							+ $(window).scrollTop() + " / "
+							+ $(window).height()
+							+ "</h3>").appendTo("body");
+				}
+			} */
+		});
+		
+	});
+</script>
+
+</head>
+<body>
+
+
+
+
+
+</body>
+</html>

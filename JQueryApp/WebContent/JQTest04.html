@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest04.html</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+
+	/* $("h1").click(function()
+	{
+		alert("클릭됨.");
+	}); */
+	//--==>> 얘로 바로는 실행 안돼!!!
+	
+	/*
+	$(function()
+	{
+		
+	})
+	*/
+	//--==>> 이런식으로 하든지 아니면 아래처럼
+
+	
+	$(document).ready(function()
+	{
+		//alert("test");
+		
+		$("h1").click(function()
+		{
+			//alert($ (this).html());
+			/* $ (this).html(function()
+			{
+				$ (this).html() + "★";
+			}) */
+			//$(this).html + "★";
+			//return $(this).html + "★";
+			
+			/* $(this).html(function()
+			{
+				return html + "★"; 
+			}) */
+			
+			
+			//방법1.
+			//$(this).html($(this).html() + "★");
+			
+			//방법2.
+			$(this).html(function(index, html)
+			{
+				return html + "●";
+			});
+		});
+		
+		
+		
+		
+		
+		// ※ 이벤트 강제 발생시키기 : trigger (트리거)
+		//    이미 이벤트가 제이쿼리에 등록된상태
+		//    <여기서는 이런 이벤트가 일어난거처럼 보여지게 하는것>
+		$("input[type=button]").click(function()
+		{
+			//alert("확인입니덩~~~~");
+			
+			// 강제로 첫 번째 h1 태그에 click 이벤트를 발생시키도록 하겠다.
+			//$("h1").first().click();
+			
+			// 강제로 마지막 h1 태그에 click 이벤트를 발생시키도록 하겠다.
+			$("h1").last().click();
+			
+			
+		})
+	});
+</script>
+</head>
+<body>
+
+<input type="button" value="트리거 작동"/> 
+<hr />
+
+<h1>click start1 : </h1>
+<h1>click start2 : </h1>
+
+
+
+</body>
+</html>

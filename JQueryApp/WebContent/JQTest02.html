@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQTest02.html</title>
+<style type="text/css">
+	.item
+	{
+		border: solid 2px red;
+		color: white;
+		background-color: black;
+	}
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	/* function test()
+	{
+		alert("함수 호출");
+		var a = 10;
+		
+	} */
+	
+	//<jquery 함수의 다양한 형태.>
+	//jquery();
+	//jquery(document).ready();
+	//$();
+	//$(document.).ready();
+	
+	
+	$(document).ready(function()
+	{
+		//alert("함수 호출 확인");
+		
+		// ※ 우리가... 또는 이 페이지를 이용하는 사용자가...
+		//    뭔가 건드리지 않아도
+		//    (즉, 특별한 이벤트를 발생시키지 않아도)
+		//    자동으로 처리할 수 있는 영역
+		
+		//$("h1").click(h1이 클릭되었을 때 수행되어야 할 기능, 동작, 행위을 수행)
+		//              -----------                      ---------------- → 함수
+		//               동작을 직접 명시하니까 무명함수를 부르는 것!
+		//==>>$("h1").click(이름이필요없는함수정의)
+		
+		
+		/*
+		$("h1").click(function()
+		{
+			//alert("클릭되었네요!");
+			
+			//1.
+			//alert( $(this).html() )
+			// this : 클릭이벤트의 대상이된 당사자
+			//        h1이 여러개, 클릭된 h1! this로 구분.
+			//        .html() : 클릭한 사람의 이름이 alert로 나옴.
+			
+			
+			//2.
+			//$(this).html("어떻게 될까요?");			
+			// 클릭된 사람의 이름이 "어떻게 될까요?"로 바뀜.
+					
+			
+			$(this).html( $(this).html()+"★");
+					
+		});
+		*/
+		//      -------- → click() : jQuery에서 제공하는 함수! 클릭되면 어떤 행위를 하겠다. 
+		
+		
+		
+		//        행위명시,어떤기능명시
+		//$("h1").on("click",기능);
+		/* $("h1").on("click",function()
+		{
+			alert( $(this).html() );
+		)}; */
+		
+		
+		// 얘는 한번만 수행.
+		$( "h1" ).one( "click", function() 
+		{
+			$(this).html(function(index, html)
+			{
+				alert(index);
+				alert(html);
+				return html + "♬";
+			})
+		});
+		
+		
+		
+		//-------------------------------------
+		//css로 정의한 item 적용.
+		
+		
+		//jquery에 여러 속성값 넘길 때
+		//{속성명:속성값, 속성명:속성값, 속성명:속성값,....}
+		
+		//$("h1").on({이벤트:기능, 이벤트:기능, 이벤트:기능,...});
+		/* 
+		$("h1").on(
+		{
+			이벤트:기능, 이벤트:기능
+		});
+		// */
+		
+		
+		/*
+		$("h1").on(
+		{
+			// mouseenter : ㅇㅉㅇㅉ → 마우스 진입할 때
+			// mouseleave : ㅈㅉㅈㅉ → 마우스 빠져나올 때
+			mouseenter : function() { $(this).addClass("item");}
+			,mouseleave : function() { $(this).removeClass("item");}
+		});
+		*/
+		
+		// 위와 같은 형태
+		//mouseenter, mouseleave
+		$("h1").hover(function()
+		{
+			$(this).addClass("item");
+		}, function()
+		{
+			$(this).removeClass("item");
+		});
+		
+		 
+
+		
+		
+		
+		
+		
+		
+		
+		
+	});
+	//--==>> jquery가 아니면,, html영역에서 onclick을 해줘야하는데
+	//       스크립트엔진이 시동될 때, 기본장착되는 함수들 $()
+	//       자동으로 메모리에 올라감
+	//       $("h1") : css의 선택자 개념.
+	
+	
+	
+	
+	//이렇게 쓰는 것도 가능!
+	/* 
+	$(function()
+	{
+		//alert("함수 호출 확인");
+	})
+	//  */
+</script>
+</head>
+<body>
+<!-- <h1 onclick="test()">박현수</h1> -->
+
+<!-- <h1 class="item">우수정</h1> -->
+
+<h1>박현수</h1>
+<h1>우수정</h1>
+<h1>김태형</h1>
+<h1>이아린</h1>
+</body>
+</html>
