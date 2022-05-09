@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery10.html</title>
+<style type="text/css">
+	body, div, span, table, th, td
+	{
+		font-size: 12px;
+	}
+	
+	#list
+	{
+		border: 1px solid gray;
+		border-collapse: collapse;
+		width: 800px;
+	}
+	
+	#list th
+	{
+		width: 152px;
+	}
+	
+	#list td
+	{
+		width: 162px;
+	}
+	
+	#list th, #list td
+	{
+		border: 1px solid gray;
+		padding: 3px;
+	}
+	
+
+</style>
+
+<script type="text/javascript">
+	function add()
+	{
+		//alert("테스트");
+		
+		//사용자가 입력한 폼 데이터(제목,날짜,시작시간,끝시간)
+		var item = document.getElementById("item").value;
+		var week = document.getElementById("week").value;
+		var start = document.getElementById("start").value;
+		var end = document.getElementById("end").value;
+		var color = document.getElementById("color").value;
+		
+		var tds = document.getElementsByTagName("td");
+		//alert(tds.length);
+		//alert(tds[1].value); → 언디파인드
+		//alert(tds[1].value);
+		//tds[1]=item;
+		//tds[4].style.backgroundColor="red";
+		
+		//alert("item : " + item);
+		//alert("week : " + week);
+		//alert("start : " + start);
+		//alert("end : " + end);
+		//alert("color : " + color);
+		
+		//시작 시간 < 끝
+		/* if(start > end)
+		{
+			alert("시작시간은 끝시간보다 빨라야합니다.");
+		} */
+		
+		//alert(start);
+		//alert(week);
+		//alert(start+week);
+		
+		// 월요일 → %4 == 0
+		// 화요일 → %4 == 1
+		// 수요일 → %4 == 2
+		// 목요일 → %4 == 3
+		//var temp = 0;
+		
+		//alert(start-1);
+		//alert((start-1)+week);
+		//alert(week+start);
+		
+		//alert(tds[(week+start)].innerHTML);
+		//temp = week+(start-1);
+		//alert(temp);
+		//tds[temp].innerHTML = item;
+		
+		/* 
+		if(week == 0)
+		{
+			//temp = week+start;
+			temp = week+start;
+			tds[temp].innerHTML = item;
+		}
+		else if(week == 1)
+		{
+			temp = week+start;
+			tds[temp].innerHTML = item;
+		}
+		else if(week == 2)
+		{
+			temp = week+start;
+			tds[temp].innerHTML = item;
+		}
+		else if(week == 3)
+		{
+			temp = week+start;
+			tds[temp].innerHTML = item;
+		}
+		  */ 
+		
+		
+		/* 
+		if(color=="#ff3300")
+		{
+			
+			
+		}
+		else if (color="#ffff33")
+		{
+			
+			
+		}
+		else if (color=="#7799ff")
+		{
+			
+			
+		}
+		else if (color=="808080")
+		{
+			
+			
+		} 
+		// */
+		
+	
+		 
+		/*  
+		alert("td수:"+tds.length);
+		temp = (start-1)+week;
+		alert(temp);
+		tds[temp].innerHTML = item; 
+		for(var i=0;i<tds.length;i++)
+		{
+			tds[i].innerHTML = i;
+			//alert("반복문");
+		}
+		// */
+		
+		// 요일(td)이 4가지 이기 때문에 → * 4
+		//for (var i=(week + (start-1) * 4); i<=(week+ (end-1) * 4); i+=4)
+		for (var i=(week-1 + (start-1) * 4); i<=(week-1+ (end-1) * 4); i+=4)
+		{
+			//alert("왜");
+			tds[i].style.backgroundColor = color;
+			tds[i].innerText = item;
+		}
+		
+		
+		// 월(week) → 0 , 13:00(start) → 3 , 13:00 → 3
+		/*
+		for (var i=(week + (start-1) * 4); i<=(week+ (end-1) * 4); i+=4)
+		{
+			tds[i].style.backgroundColor = color;
+			tds[i].innerText = item;
+		}
+		*/
+		
+		/*
+		for (var i=(0 + (3-1) * 4); i<=(0+ (3-1) * 4); i+=4)
+		{
+			tds[i].style.backgroundColor = color;
+			tds[i].innerText = item;
+		}
+		*/
+		
+		/*
+		for (var i=(8); i<=(8); i+=4)
+		{
+			tds[i].style.backgroundColor = color;
+			tds[i].innerText = item;
+		}
+		*/
+		
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+
+<h1>일정</h1>
+<hr />
+
+<table id="list">
+	<tr>
+		<th>&nbsp;</th>
+		<th>월</th>
+		<th>화</th>
+		<th>수</th>
+		<th>목</th>
+	</tr>
+	
+	<tr>
+		<th>11:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>12:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>13:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>14:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>15:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>16:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>17:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<th>18:00</th>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+</table>
+
+<div style="margin-top:20px;">
+	<lable for="item">제목</lable>
+	<input type="text" id="item"/>
+	<br />
+	
+	<lable for="week">날짜</lable>
+	<select  id="week">
+		<!-- 
+		<option value="0">월요일</option>
+		<option value="1">화요일</option>
+		<option value="2">수요일</option>
+		<option value="3">목요일</option>
+		// -->
+		<option value="1">월요일</option>
+		<option value="2">화요일</option>
+		<option value="3">수요일</option>
+		<option value="4">목요일</option>
+	</select>
+	<br />
+	
+	<label for="start">시간</label>
+	<select id="start">
+		<option value="1">11:00</option>
+		<option value="2">12:00</option>
+		<option value="3">13:00</option>
+		<option value="4">14:00</option>
+		<option value="5">15:00</option>
+		<option value="6">16:00</option>
+		<option value="7">17:00</option>
+		<option value="8">18:00</option>
+	</select>	
+	
+	~
+	
+	<select id="end">
+		<option value="1">11:00</option>
+		<option value="2">12:00</option>
+		<option value="3">13:00</option>
+		<option value="4">14:00</option>
+		<option value="5">15:00</option>
+		<option value="6">16:00</option>
+		<option value="7">17:00</option>
+		<option value="8">18:00</option>
+	</select>
+	<br />
+	
+	<label for="color">색상</label>
+	<select name="" id="color">
+		<option value="#ff3300">빨강</option>
+		<option value="#ffff33">노랑</option>
+		<option value="#7799ff">파랑</option>
+		<option value="808080">검정</option>
+	</select>
+	<br /><br />
+	
+	<input type="button" value="일정 추가하기" onclick="add()">
+</div>
+
+</body>
+</html>
