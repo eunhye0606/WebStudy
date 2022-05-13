@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest07.html</title>
+<script type="text/javascript">
+	
+	
+	// [ ] → json 내부에서 배열.
+	var myJsonObject7 = 
+	[
+			"test"
+	]
+	
+	var myJsonObject7_1 = 
+	[
+		"test1" , "test2"
+	]
+	
+	var myJsonObject7_2 = 
+	[
+		"test1", "test2", 123, 123+1
+		// 자바의 배열은 같은 타입
+		// 이렇게 하려면 object 타입으로 해야하는데 그거도
+		// 오토박싱 / 오토언박싱이 가능해야..
+		
+	]
+	
+
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="alert(myJsonObject7)"/>
+	<input type="button" value="click2" onclick="alert(myJsonObject7_1)"/>
+	<input type="button" value="click3" onclick="alert(myJsonObject7_2)"/>
+	
+	<br />
+	<br />
+	<br />
+	
+	<input type="button" value="click4" onclick="alert(typeof myJsonObject7)"/>
+	<input type="button" value="click5" onclick="alert(typeof myJsonObject7_1)"/>
+	<input type="button" value="click6" onclick="alert(typeof myJsonObject7_2)"/>
+	<br />타입은 object
+	
+	<br />
+	<input type="button" value="click4" onclick="alert(myJsonObject7[0])"/>
+	<input type="button" value="click5" onclick="alert(typeof myJsonObject7[0])"/>
+	<input type="button" value="click6" onclick="alert(myJsonObject7_2[2])"/>
+	<input type="button" value="click4" onclick="alert(myJsonObject7[1])"/>
+	<br /> 값이 없으면 null, empty가 아니라 undefined<br />
+	<input type="button" value="click4" onclick="alert(typeof myJsonObject7[1])"/>
+	<br /> 타입도 undefined<br />
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<input type="button" value="click4" 
+	onclick="alert(myJsonObject7_1[0] + myJsonObject7_1[1]) "/>
+	<br />test1test2<br />
+	<br />문자열 결합<br />
+	
+	<input type="button" value="click4" 
+	onclick="alert( typeof (myJsonObject7_1[0] + myJsonObject7_1[1]) ) "/>
+	<br />string<br />
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	<input type="button" value="click4" 
+	onclick="alert((myJsonObject7_2[2] + myJsonObject7_2[3]) ) "/>
+	<br />247<br />
+	<input type="button" value="click4" 
+	onclick="alert(typeof (myJsonObject7_2[2] + myJsonObject7_2[3]) ) "/>
+	<br />number<br />
+	
+	<br />언디파인드 요상한 자식!!! <br />
+	<input type="button" value="click4" 
+	onclick="alert((myJsonObject7_1[0] + myJsonObject7_1[2]) ) "/>
+	<br />test1undefined<br />
+	<br />tq 어케 이렇게 됨..<br />
+	<input type="button" value="click4" 
+	onclick="alert(typeof (myJsonObject7_1[0] + myJsonObject7_1[2]) ) "/>
+	<br />string<br />
+	
+	<br />
+	<br />
+	<br />
+	<input type="button" value="click4" 
+	onclick="alert((myJsonObject7_2[3] + myJsonObject7_2[4]) ) "/>
+	<br />NaN(not a number ) <br />
+	<input type="button" value="click4" 
+	onclick="alert(type of(myJsonObject7_2[3] + myJsonObject7_2[4]) )) "/>
+	<br />number <br />
+	
+	
+	
+	
+	
+	
+</form>
+
+
+</body>
+</html>

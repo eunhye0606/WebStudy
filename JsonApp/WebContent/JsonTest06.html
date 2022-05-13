@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest06.html</title>
+<script type="text/javascript">
+	
+	// ①
+	/* 
+	var myJsonObject6 = 
+	{
+			"test" : 123
+	}
+	// */
+	
+	//②
+	/* 
+	var myJsonObject6 = 
+	{
+			"test" : 123.456
+	}
+	// */
+	
+	//③
+	/* 
+	var myJsonObject6 = 
+	{
+			"test" : true
+	}
+	// */
+	
+	//④
+	var myJsonObject6 = 
+	{
+			"test" : null
+	}
+	
+
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="alert(myJsonObject6.test)" />
+	<br />① 123<br />
+	<br />② 123<br />
+	<br />③ true<br />
+	<br />④ null<br />
+	
+	
+	<input type="button" value="click2" onclick="alert(typeof myJsonObject6.test)" />
+	<br />① number<br />
+	<br />② number<br />
+	<br />정수든 실수든 typeof는 number!! <br />
+	<br />③ boolean<br />
+	<br />④ object(check!!!!)<br />
+	
+	<br />
+	<br />
+	<br />
+	<input type="button" value="click3" 
+	onclick="myJsonObject6.test=false; alert(myJsonObject6.test)"/>
+	<br />false<br />
+	<input type="button" value="click4" 
+	onclick="myJsonObject6.test=false; alert(typeof myJsonObject6.test)"/>
+	<br />boolean<br />
+	<input type="button" value="click5" 
+	onclick="myJsonObject6.test=123; alert(myJsonObject6.test)"/>
+	<br />123<br />
+	
+	<br />
+	<br />
+	<br />
+	<input type="button" value="click6" 
+	onclick="myJsonObject6.test='123'; alert(myJsonObject6.test)"/>
+	<br />false<br />
+	<input type="button" value="click7" 
+	onclick="myJsonObject6.test='123'; alert(typeof myJsonObject6.test)"/>
+	<br />string<br />
+	
+	
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest01.html</title>
+<script type="text/javascript">
+	
+	//var myJsonObject = {"test" : "hello"}
+	
+	//js 영역에서 변수 선언.
+	//뭐가 들어있느냐에 따라 타입이 달라짐.
+	var myJsonObject =
+	{
+			"test" : "hello"	
+			
+	}
+
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="alert(myJsonObject)" />
+	<br /> -- 특정한 값이아니라 객체임을 보여줌. <br />
+	<input type="button" value="click1" onclick="alert(typeof myJsonObject)" />
+	<br /> -- 객체 반환 <br />
+</form>
+
+</body>
+</html>

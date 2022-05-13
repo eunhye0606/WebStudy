@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest04.html</title>
+<script type="text/javascript">
+	var myJsonObject4 =
+	{
+			"test" : function()
+			{
+				alert("Method Test!");
+			}
+	}
+</script>
+</head>
+<body>
+<input type="button" value="click1"	onclick="myJsonObject4.test"/>
+<br />-- JSON객체에 alert이 포함되니 alert을 쓰지말아야지 <br />
+<br />-- 결과 : 안눌림! <br />
+
+<input type="button" value="click2"	onclick="alert(myJsonObject4.test)"/>
+<br />-- 이러면 태그 내용이 죄다 나옴.<br />
+<br />-- 왜냐하면 JSON객체의 test라는 속성값을 alert으로 띄우겠다라서!<br />
+
+<input type="button" value="click3"	onclick="alert(typeof myJsonObject4.test)"/>
+<br />-- function<br />
+
+<input type="button" value="click4" style="width: 500px;"	
+onclick="alert(myJsonObject4.test())"/>
+<br />-- 함수안에 내용이 나왔다!!!<br />
+<br />-- 근데 넘겨주는게 없어서 뒤에 undefined가 나옴<br />
+<br />-- 아하 정상적인 방법은 아니군...<br />
+
+
+
+『eval()』 : 변수를 자바스크립트의 함수처럼 사용할 수 있도록 해 주는 함수
+             <br />즉, 정적인 문자열을 동적인 코드 형식으로 처리
+<br />
+<input type="button" value="click5" style="width: 500px; height: 500px;" 
+onclick="eval('a=' + myJsonObject4.test); a();"/>
+
+<br /> eval()를 호출해서 a는 myJsonObject4.test이거이고
+<br /> a() 를 호출해라.
+<br />-- 함수안에 내용이 나왔다!!!<br />
+<br />-- 근데 넘겨주는게 없어서 뒤에 undefined가 나옴<br />
+<br />-- 아하 정상적인 방법은 아니군...<br />
+
+
+
+</body>
+</html>

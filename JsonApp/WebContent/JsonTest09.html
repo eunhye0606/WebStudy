@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest09.html</title>
+<script type="text/javascript">
+
+	var myJsonObject9 = 
+	{
+		"superman" : 
+		{
+			"name" : "kimtaehyong"
+			, "age": 48
+			, "hobby" : ["song", "dance"]
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click1" onclick="alert(typeof myJsonObject9)"/>
+	<br>object<br>
+	
+	<input type="button" value="click2" onclick="alert(typeof myJsonObject9.superman)"/>
+	<br>object<br>
+	
+	<input type="button" value="click3" onclick="alert(typeof myJsonObject9.superman.name)"/>
+	<br>string<br>
+	<input type="button" value="click4" onclick="alert(typeof myJsonObject9.superman.age)"/>
+	<br>number<br>
+	<input type="button" value="click5" onclick="alert(typeof myJsonObject9.superman.hobby)"/>
+	<br>object<br>
+	
+	<br /><br />
+	<input type="button" value="click6" onclick="alert(myJsonObject9.superman.hobby[0])"/>
+	<input type="button" value="click7" onclick="alert(typeof myJsonObject9.superman.hobby[0])"/>
+	<br>song / string<br>
+	
+	
+	
+</form>
+
+</body>
+</html>

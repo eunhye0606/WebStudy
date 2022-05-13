@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest08.html</title>
+<script type="text/javascript">
+	
+	
+	//var myJsonObject8 = {"test" : ["ccc", "ddd"], "exam" : ["kkk", "ppp"]}
+	
+	var myJsonObject8 = 
+	{
+		"test" : 
+		[
+			"ccc", "ddd"
+		]
+		, "exam" : 
+		[
+			"kkk", "ppp"
+		]
+	}
+	
+</script>
+</head>
+<body>
+
+<form action="">
+	<input type="button" value="click"  onclick="alert(myJsonObject8)"/>
+	
+	<input type="button" value="click"  onclick="alert(typeof myJsonObject8)"/>
+	
+	<br />타입은 object<br />
+	<br />
+	<br />
+	<input type="button" value="click"  onclick="alert(myJsonObject8.test)"/>
+	
+	<input type="button" value="click"  onclick="alert(typeof myJsonObject8.test)"/>
+	
+	<br />배열안에 값이 다 나오고 / 타입은 object<br />
+	<br />
+	<br />
+	<input type="button" value="click"  onclick="alert(myJsonObject8.test[0])"/>
+	
+	<input type="button" value="click"  onclick="alert(typeof myJsonObject8.test[0])"/>
+	
+	<br />ccc / 타입은 string<br />
+	<br />
+	<br />
+	※ 객체 구조상 2차원 배열의 형태로 볼 수 있지만
+	   <br />다음과 같은 접근이나 처리는 불가능하다. <br />
+	   
+	<input type="button" value="click"  onclick="alert(myJsonObject8.[0][0])"/>
+	
+	<input type="button" value="click"  onclick="alert(myJsonObject8.[1][1])"/>
+	
+	<br />아무것도 안나온다.<br />
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	<br />
+	
+</form>
+
+</body>
+</html>
