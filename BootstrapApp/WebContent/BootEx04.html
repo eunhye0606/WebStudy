@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BootEx04.html</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	#login
+	{
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		width: 300px;
+		padding: 15px;
+		margin: 30px;
+	}
+	#login h3
+	{
+		margin: 0px;
+		margin-bottom: 15px;
+	}
+</style>
+</head>
+<body>
+
+<!-- 컨트롤들의 그룹 묶기 -->
+
+<div>
+	<h1>기본 폼 구성하기</h1>
+	<hr />
+</div>
+
+<div id="login">
+	<h3>로그인 <small>회원 인증하기</small></h3>
+	
+	<!-- 『.form-group』 : 폼을 구성하는 1개 관련 항목만 묶기 
+	                       그룹화한다라고 의미 전달, 묶이는 기능-->
+	
+	
+	<!-- 요새는 div 엄청 많음. 이유는 ? 구역을 나누는 기능을 가진 엘리먼트
+	     나누기 위해 쓴다기 보단, 『묶기』위해 쓴다.
+	     ppt.그룹화 기능으로 활용하기 위해 div를 쓴다! -->
+	<form action="">
+		<div class="form-group">
+			<label for="txtId">아이디</label>
+			<input type="text" id="txtId" placeholder="아이디를 입력하세요"
+			required="required" class="form-control"/>
+		</div>
+		
+		<div class="form-group">
+			<label for="txtPw">암호</label>
+			<input type="password" id="txtPw" placeholder="암호를 입력하세요"
+			required="required" class="form-control"/>
+		</div>
+		<input type="submit" value="입력하기" class="btn btn-default">
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

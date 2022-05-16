@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BootEx08.html</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Glyphicons은 쓸 때, 추가해야하는 것이 있음! -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
+<div>
+	<h1>Glyphicons</h1>
+	<hr />
+</div>
+
+<div>
+	<!-- http://bootstrapk.com/components/
+	     여기에 있는 아이콘 텍스트 그냥 복붙해서 클래스로 사용하면 된다. -->
+	<!-- 아이콘 :  <span class="glyphicon glyphicon-heart" style="width: 200px;"></span> -->
+	<!-- style을 먹일 수 없군!! -->
+	<!-- 이미지 크기를 width / height를 둘다 지정하지 마라. 왜냐면 비율 다 깨짐. -->
+	
+	
+	
+	
+	
+	<!-- ※ glyphicons은 텍스트임 모양만 딴거. -->
+	아이콘 :  <span class="glyphicon glyphicon-heart"></span>
+	<br />
+	<br />
+	<br />
+	아이콘 :  <span class="glyphicon glyphicon-heart"
+	 style="font-size: large; color: red;"></span>
+	 
+
+	 
+	 
+	
+</div>
+
+<br />
+<br />
+<br />
+
+<!-- Attribute Content Type → Simple Type → 적용되지 않음 -->
+<!-- ---------------------이   ----------이면 -------------- -->
+<div><input type="button" class="glyphicon glyphicon-qrcode" /></div>
+<br />
+<br />
+<br />
+
+<!-- 닫는 태그가 없는 단독 태그이다. 또 다른 태그를 품을 수 없음. -->
+<!-- Simple Type -->
+<input type="button" />
+
+<!-- 닫는 태그가 있어서 다른 태그를 품을 수 있다. -->
+<!-- Complex Type -->
+<button type="button"></button>
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- ※ Attribute Content Type → Complex Type → 적용 됨. -->
+<div>
+	<button type="button" class="btn btn-default">
+		<!-- 그리피콘에서 많이 쓰는 것이 span -->
+		<span class="glyphicon glyphicon-qrcode" style="font-size: xx-large;"></span>
+	</button>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- 버튼도 그룹화가 가능하다. 보기 좋아 진다. -->
+<div>
+	<button type="button" class="btn btn-default">Left</button>
+	<button type="button" class="btn btn-default">Middle</button>
+	<button type="button" class="btn btn-default">Right</button>
+</div>
+
+
+
+
+<br /><br />
+<div class="btn-group" role="group"> 
+	<button type="button" class="btn btn-default">Left</button>
+	<button type="button" class="btn btn-default">Middle</button>
+	<button type="button" class="btn btn-default">Right</button>
+</div>
+
+
+
+
+<br /><br />
+<div class="btn-group" role="group"> 
+	<button type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-align-left"></span>
+	</button>
+	<button type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-align-center"></span>
+	</button>
+	<button type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-align-right"></span>
+	</button>
+</div>
+<br />
+<button type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-hand-right"></span>
+</button>
+<button type="button" class="btn btn-default">
+		<span class="glyphicon glyphicon-thumbs-down"></span>
+</button>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+</body>
+</html>
